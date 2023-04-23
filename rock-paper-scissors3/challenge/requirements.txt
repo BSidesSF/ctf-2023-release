@@ -1,0 +1,6 @@
+flask
+requests
+flask-csp
+flask-wtf
+flask-sqlalchemy
+pyjwt

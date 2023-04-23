@@ -1,0 +1,12 @@
+version: release
+name: flight
+author: Matthias Penner
+flag: 'CTF{p1Ay1ng_w1th_r0p}'
+description: A very secure flight navigation system
+value: 1000
+tags:
+  - Pwn
+  - RE
+port: 6464
+protocol: tcp
+notes: Private notes on deployment, setup, etc.

@@ -1,0 +1,11 @@
+FROM openjdk:11
+MAINTAINER "Ron Bowes"
+
+# Install all the tools
+RUN apt update && apt install -y ant make
+
+# We're going to mount the source here
+RUN mkdir /src
+WORKDIR /src
+
+CMD ["make", "indocker"]

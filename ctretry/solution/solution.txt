@@ -1,0 +1,9 @@
+This is a classic IV/key re-use with CTR mode.
+
+XOR the two images together to cancel the encryption stream. This will
+also 0 out the alpha channels so XOR the result with FF to fix that.
+
+The result can be then interpreted as a 600x600 RGB + Alpha image.
+The flag is easily readable.
+
+CTF{mix_once_use_once}

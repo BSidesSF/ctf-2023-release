@@ -1,0 +1,41 @@
+Carve 256x256 combined flage image out into its own file.
+
+Note there are many other image FFT tools that can solve this
+challenge basically instantly as soon as the combined image is
+decomposed into a frequency and phase. The encoding of the frequency
+into the red and blue channels rather than just one color channel, or
+simply as a separate image is non-standard. The bliss example given
+makes it obvious how this is done though which makes inverting the
+combination back to two greyscale images trivial.
+
+Use octave/matlab:
+
+Read image:
+octave:2> solve = im2double(imread("solve.png"));
+
+Split into chanels, using ifftshift to invert the fft grid shift
+octave:6> solve_r = ifftshift(rescale(solve(:,:,1)));
+octave:7> solve_g = ifftshift(rescale(solve(:,:,2)));
+octave:8> solve_b = ifftshift(rescale(solve(:,:,3)));
+
+Combine r and b channels and rescale to [-pi, pi]
+
+octave:10> solve_fft_arg = solve_r * -1 * pi + solve_b * pi;
+
+Undo the log scaling and shift.  Note the log(256 * 256 / 2) scaling
+constant fixes the rescaling to fit into a greyscale image. This is
+just a consthat assumes the image is approximately grey on average.
+
+octave:11> solve_fft_abs = exp(solve_g * log(256 * 256 / 2)) - 1;
+
+Recombine the abs and arg into a proper complex-valued FFT:
+
+octave:12> solve_fft = solve_fft_abs .* cos(solve_fft_arg) + i * solve_fft_abs .* sin(solve_fft_arg);
+
+Invert the fft and display image:
+octave:13> imshow(rescale(ifft2(solve_fft)));
+
+flag:
+
+CTF{FFT_FTW}
+

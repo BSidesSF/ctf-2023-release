@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<CROSSFIRE>
+    <VERSION>1</VERSION>
+    <TITLE/>
+    <AUTHOR/>
+    <COPYRIGHT/>
+    <GRID width="18">
+.....TCP.SUMP.....
+ACS..HAL.ONLOANTO.
+CHEERYDISPOSITION.
+TUPLE..NIH...APSE.
+.FIFE..TRIO..LASIK
+.FAILSTHESMELLTEST
+...NSFL..MINE..DHS
+.....OAK..TOM.....
+DITCH..IDA.LOOTBOX
+BSIDESSANFRANCISCO
+APESHIT.ALA..HASTO
+.....MUM..GMT.....
+TAS..ONUS..ALOU...
+HITTINGTHEJACKPOT.
+CROHN..EULA..APRS.
+.ALIA...NIN..METAT
+.CORPORATEINSIDERS
+.ENDPIECE.CSS..ASK
+.....LOAD.EAR.....
+</GRID>
+    <CIRCLES>36,40,41,45,49,51,95,97,98,102,103,234,243,245,248,289,291,297,302</CIRCLES>
+    <WORDS>
+        <WORD dir="ACROSS" id="0" isTheme="false" num="1">Certain streaming protocol</WORD>
+        <WORD dir="ACROSS" id="1" isTheme="false" num="4">Type of pump</WORD>
+        <WORD dir="ACROSS" id="2" isTheme="false" num="8">Cooling units? (abbr)</WORD>
+        <WORD dir="ACROSS" id="3" isTheme="false" num="11">Evil AI</WORD>
+        <WORD dir="ACROSS" id="4" isTheme="false" num="12">Being borrowed by</WORD>
+        <WORD dir="ACROSS" id="5" isTheme="true" num="17">Having a positive outlook (*or, DES, eg)</WORD>
+        <WORD dir="ACROSS" id="6" isTheme="false" num="21">Finite sequence of elements</WORD>
+        <WORD dir="ACROSS" id="7" isTheme="false" num="22">Org. funding COVID-19 research</WORD>
+        <WORD dir="ACROSS" id="8" isTheme="false" num="23">Church recess that sounds like a snake</WORD>
+        <WORD dir="ACROSS" id="9" isTheme="false" num="24">Small flute</WORD>
+        <WORD dir="ACROSS" id="10" isTheme="false" num="25">More than a duo</WORD>
+        <WORD dir="ACROSS" id="11" isTheme="false" num="27">Eye surgery</WORD>
+        <WORD dir="ACROSS" id="12" isTheme="true" num="29">Doesn't seem quite right (*or, run illicit commands)</WORD>
+        <WORD dir="ACROSS" id="13" isTheme="false" num="34">Don't click this link (EVER!)</WORD>
+        <WORD dir="ACROSS" id="14" isTheme="false" num="35">Hunt for Bitcoins, say</WORD>
+        <WORD dir="ACROSS" id="15" isTheme="false" num="36">Federal agency since 2002</WORD>
+        <WORD dir="ACROSS" id="16" isTheme="false" num="37">Pokemon professor</WORD>
+        <WORD dir="ACROSS" id="17" isTheme="false" num="39">Male turkey</WORD>
+        <WORD dir="ACROSS" id="18" isTheme="false" num="40">Leave behind</WORD>
+        <WORD dir="ACROSS" id="19" isTheme="false" num="45">Popular reverse engineering tool</WORD>
+        <WORD dir="ACROSS" id="20" isTheme="false" num="48">Unfortunate element of modern gaming</WORD>
+        <WORD dir="ACROSS" id="21" isTheme="true" num="54">When interpreted correctly, the circled letters (and associated parenthetical clue) might be found in this CTF!</WORD>
+        <WORD dir="ACROSS" id="22" isTheme="false" num="58">Wild</WORD>
+        <WORD dir="ACROSS" id="23" isTheme="false" num="59">___ mode</WORD>
+        <WORD dir="ACROSS" id="24" isTheme="false" num="60">Someone _____ do it, so why not me?</WORD>
+        <WORD dir="ACROSS" id="25" isTheme="false" num="61">British parent</WORD>
+        <WORD dir="ACROSS" id="26" isTheme="false" num="63">Timezone similar to UTC</WORD>
+        <WORD dir="ACROSS" id="27" isTheme="false" num="66">Hyper-optimized game player (abbr)</WORD>
+        <WORD dir="ACROSS" id="28" isTheme="false" num="69">Burden</WORD>
+        <WORD dir="ACROSS" id="29" isTheme="false" num="71">Baseballer commonly found in crossword puzzles</WORD>
+        <WORD dir="ACROSS" id="30" isTheme="true" num="74">Winning big! (*or, preparing a process's memory for a certain exploit)</WORD>
+        <WORD dir="ACROSS" id="31" isTheme="false" num="81">Namesake of a bowel disease</WORD>
+        <WORD dir="ACROSS" id="32" isTheme="false" num="82">Agreement when installing software</WORD>
+        <WORD dir="ACROSS" id="33" isTheme="false" num="83">Figures that include interest (abbr)</WORD>
+        <WORD dir="ACROSS" id="34" isTheme="false" num="84">Bibliographic latin: et ____</WORD>
+        <WORD dir="ACROSS" id="35" isTheme="false" num="85">Year Zero band (abbr)</WORD>
+        <WORD dir="ACROSS" id="36" isTheme="false" num="86">Used as a rendezvous point</WORD>
+        <WORD dir="ACROSS" id="37" isTheme="true" num="88">Sources of privileged information (*or, using breached passwords)</WORD>
+        <WORD dir="ACROSS" id="38" isTheme="false" num="94">Best part of a loaf!</WORD>
+        <WORD dir="ACROSS" id="39" isTheme="false" num="95">Web markup that nobody quite understands</WORD>
+        <WORD dir="ACROSS" id="40" isTheme="false" num="96">___ Me Anything!</WORD>
+        <WORD dir="ACROSS" id="41" isTheme="false" num="97">Piece of information in the uptime command</WORD>
+        <WORD dir="ACROSS" id="42" isTheme="false" num="98">Symbol for an audio device</WORD>
+        <WORD dir="DOWN" id="58" isTheme="false" num="1">Old-fashioned possessive</WORD>
+        <WORD dir="DOWN" id="62" isTheme="false" num="2">Currency north of the 49th</WORD>
+        <WORD dir="DOWN" id="66" isTheme="false" num="3">Base of a column</WORD>
+        <WORD dir="DOWN" id="73" isTheme="false" num="4">Specious reasoning</WORD>
+        <WORD dir="DOWN" id="76" isTheme="false" num="5">Cry at a card table</WORD>
+        <WORD dir="DOWN" id="80" isTheme="false" num="6">Seattle Sounders' org.</WORD>
+        <WORD dir="DOWN" id="84" isTheme="false" num="7">Staple of Polynesian cuisine</WORD>
+        <WORD dir="DOWN" id="43" isTheme="false" num="8">Don't just sit</WORD>
+        <WORD dir="DOWN" id="46" isTheme="false" num="9">Move with a puffing sound</WORD>
+        <WORD dir="DOWN" id="49" isTheme="false" num="10">Nostalgic tint</WORD>
+        <WORD dir="DOWN" id="88" isTheme="false" num="13">Even a bit</WORD>
+        <WORD dir="DOWN" id="91" isTheme="false" num="14">Lightly bite, like a pup</WORD>
+        <WORD dir="DOWN" id="94" isTheme="false" num="15">Put in the trash</WORD>
+        <WORD dir="DOWN" id="97" isTheme="false" num="16">Around an hour after noon</WORD>
+        <WORD dir="DOWN" id="52" isTheme="false" num="18">Like Legolas</WORD>
+        <WORD dir="DOWN" id="55" isTheme="false" num="19">Old fashioned film units</WORD>
+        <WORD dir="DOWN" id="70" isTheme="false" num="20">Title for a king</WORD>
+        <WORD dir="DOWN" id="77" isTheme="false" num="26">Leave out</WORD>
+        <WORD dir="DOWN" id="100" isTheme="false" num="28">Gold units (abbr)</WORD>
+        <WORD dir="DOWN" id="59" isTheme="false" num="30">Bay area airport code</WORD>
+        <WORD dir="DOWN" id="63" isTheme="false" num="31">36-Across or 92-Down, for eg.</WORD>
+        <WORD dir="DOWN" id="81" isTheme="false" num="32">_____ Gay</WORD>
+        <WORD dir="DOWN" id="85" isTheme="false" num="33">Something added to Topo Chico</WORD>
+        <WORD dir="DOWN" id="67" isTheme="false" num="38">Korean auto brand</WORD>
+        <WORD dir="DOWN" id="44" isTheme="false" num="40">MySQL specialist, eg.</WORD>
+        <WORD dir="DOWN" id="47" isTheme="false" num="41">You can't work when it's down</WORD>
+        <WORD dir="DOWN" id="50" isTheme="false" num="42">Nobody wins</WORD>
+        <WORD dir="DOWN" id="53" isTheme="false" num="43">They typically hold about 650mb</WORD>
+        <WORD dir="DOWN" id="56" isTheme="false" num="44">Small laugh</WORD>
+        <WORD dir="DOWN" id="71" isTheme="false" num="46">Material at the basis of "Jurassic Park"</WORD>
+        <WORD dir="DOWN" id="74" isTheme="false" num="47">Security tool from Lcamtuf</WORD>
+        <WORD dir="DOWN" id="89" isTheme="false" num="49">Scottish exclamation</WORD>
+        <WORD dir="DOWN" id="92" isTheme="false" num="50">Aunt: Spanish</WORD>
+        <WORD dir="DOWN" id="95" isTheme="false" num="51">Executable section with uninitialized variables</WORD>
+        <WORD dir="DOWN" id="98" isTheme="false" num="52">Tenth month (abbr)</WORD>
+        <WORD dir="DOWN" id="101" isTheme="false" num="53">Losing line in Tic-Tac-Toe</WORD>
+        <WORD dir="DOWN" id="60" isTheme="false" num="55">Anthony, of Cracking the Cryptic</WORD>
+        <WORD dir="DOWN" id="64" isTheme="false" num="56">Attacked by hornets</WORD>
+        <WORD dir="DOWN" id="78" isTheme="false" num="57">Untrustworthy paper</WORD>
+        <WORD dir="DOWN" id="68" isTheme="false" num="62">"You're on ____!" - common Zoom exclamation</WORD>
+        <WORD dir="DOWN" id="82" isTheme="false" num="64">Sound a goat makes</WORD>
+        <WORD dir="DOWN" id="86" isTheme="false" num="65">Affectionate attention (abbr)</WORD>
+        <WORD dir="DOWN" id="45" isTheme="false" num="66">Active ingrediant in marijuana (abbr)</WORD>
+        <WORD dir="DOWN" id="48" isTheme="false" num="67">Hero pilot</WORD>
+        <WORD dir="DOWN" id="51" isTheme="false" num="68">Creeping horizontal plant stem</WORD>
+        <WORD dir="DOWN" id="72" isTheme="false" num="70">Pushed aside</WORD>
+        <WORD dir="DOWN" id="90" isTheme="false" num="72">Japanese game that follows the adventure of Amaterasu as a wolf</WORD>
+        <WORD dir="DOWN" id="93" isTheme="false" num="73">One-_____ somebody</WORD>
+        <WORD dir="DOWN" id="54" isTheme="false" num="75">Bronze medal</WORD>
+        <WORD dir="DOWN" id="57" isTheme="false" num="76">Type of purchase that's the bane of online gaming</WORD>
+        <WORD dir="DOWN" id="75" isTheme="false" num="77">Nobel laureate Wiesel</WORD>
+        <WORD dir="DOWN" id="79" isTheme="false" num="78">One of the Sopranos</WORD>
+        <WORD dir="DOWN" id="96" isTheme="false" num="79">Would you like coffee _____?</WORD>
+        <WORD dir="DOWN" id="99" isTheme="false" num="80">Bygone Russian rulers</WORD>
+        <WORD dir="DOWN" id="102" isTheme="false" num="87">Syllable of disapproval</WORD>
+        <WORD dir="DOWN" id="61" isTheme="false" num="89">We need to stop burning this</WORD>
+        <WORD dir="DOWN" id="65" isTheme="false" num="90">___ Speedwagon</WORD>
+        <WORD dir="DOWN" id="69" isTheme="false" num="91">Obamacare bill (abbr)</WORD>
+        <WORD dir="DOWN" id="83" isTheme="false" num="92">Org. with a cryptologic museum</WORD>
+        <WORD dir="DOWN" id="87" isTheme="false" num="93">Map abbreviation until 1991</WORD>
+    </WORDS>
+    <NOTES/>
+</CROSSFIRE>

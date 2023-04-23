@@ -1,0 +1,8 @@
+VERSION 0.7
+
+solution:
+  FROM ../challenge+docker
+
+  COPY solution.py /tmp/solution.py
+
+  SAVE IMAGE shurdles-solution:latest

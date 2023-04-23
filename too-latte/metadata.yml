@@ -1,0 +1,16 @@
+version: beta1
+name: too-latte
+author: ron
+flag: 'CTF{good-work-you-saved-humanity}'
+description: "Space aliens have arrived, and they aren't happy we're shooting them down! Can you access their server and help get us all out?"
+value: 1000
+tags:
+  - Pwn
+  - Java
+  - Web
+port: 8080
+protocol: http # accepted: http, https, tcp, udp
+flag_path: /flag.txt
+
+security:
+  deny_egress: false

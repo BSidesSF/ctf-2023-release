@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<request>
+  <subject>Human</subject>
+  <source>Earth</source>
+  <destination>Utopia</destination>
+  <class>Cargo</class>
+  <status>Pending</status>
+  <decisionDate>2133-04-11 09:00:00</decisionDate>
+  <notes>Requested one (1) ticket via the site we set up to keep humans calm after they started shooting us down</notes>
+</note>

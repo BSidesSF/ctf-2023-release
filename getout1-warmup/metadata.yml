@@ -1,0 +1,32 @@
+# This is the standard metadata for a challenge with a server-side component.
+# In terms of file structure, please also have the following:
+#
+# - A challenge/ folder with everything needed to create the challenge assets
+# - A distfiles/ folder which contains all files (or symlinks to files) that
+#   will be attached to the challenge
+# - A solution/ folder with a working solution to the challenge (or a README.md
+#   file documenting the solution)
+
+version: beta1
+name: getout1 (testing)
+author: ron
+flag: 'CTF{your-client-seems-to-be-working}'
+description: |
+  It's happened! The "Get Out" program has begun! A select number of humans
+  will be saved from your dying planet and brought to Space Paradise. Humans
+  wishing to escape must obtain a copy of the software package, "Get Out
+  Solutions". Packages have been distributed to your world governments.
+
+  To test the software, please configure it to connect to the service listed
+  below, and run the `ping` function.
+
+  > (*bzzzt*...*bzzzzzzt*....are you receiving this? There's more to the "Get
+  > Out" program than meets the eye. None of us are getting "Get Out
+  > Solutions". But *I* have access to the server-side packages - I think it's
+  > just an RPC server. Can you help me figure out how to run their `ping` RPC
+  > service?)
+value: 1000
+tags:
+  - RE
+port: 1337
+protocol: tcp

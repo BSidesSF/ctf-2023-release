@@ -1,0 +1,2 @@
+The bot plays Paper when the minute is even. 
+Call "/round?pick=scissors" 50 times during an even minute to win. 

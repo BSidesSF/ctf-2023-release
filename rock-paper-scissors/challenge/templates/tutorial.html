@@ -1,0 +1,107 @@
+<html>
+
+<head>
+    <title> Rock Paper Scissors </title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+
+<body class="home-body">
+    <div class="col-lg-8 col-md-7 col-sm-6">
+        <h1> Rock, Paper, Scissors</h1>
+        <p class="lead"> Welcome to Rock, Paper, Scissors - {{ user.username }}! It looks like this is your first time
+            here, let's run through
+            the basics.</p>
+        <div>
+            <h2>Score: {{ user.score }} </h2>
+        </div>
+        {% if msg != "" %}
+        <div class="outcome alert alert-info">
+            <strong> {{ msg }} </strong>
+        </div>
+        {% endif %}
+        <form action="/tutorialround">
+            {% if stage == 0 %}
+            <p> Choose <b>paper</b> to proceed...</p>
+            <div class="container">
+                <div class="card-deck mb-3 text-center">
+                    <div class="card mb-4 border-secondary">
+                        <div class="card-header">
+                            <h4 class="my-0 font-weight-normal">Rock</h4>
+                        </div>
+                        <div class="card-body">
+                            <img class="card-img" src="{{ url_for('static', filename='images/Rock.png') }}" />
+                            <input type="radio" class="btn-check btn-block" name="pick" id="rock" value="rock"
+                                autocomplete="off" disabled>
+                            <label class="btn btn-outline-primary" for="rock">Rock</label>
+                        </div>
+                    </div>
+                    <div class="card mb-4 border-secondary">
+                        <div class="card-header">
+                            <h4 class="my-0 font-weight-normal">Paper</h4>
+                        </div>
+                        <div class="card-body">
+                            <img class="card-img" src="{{ url_for('static', filename='images/Paper.png') }}" />
+                            <input type="radio" class="btn-check btn-block" name="pick" id="paper" value="paper"
+                                autocomplete="off">
+                            <label class="btn btn-outline-primary" for="paper">Paper</label>
+                        </div>
+                    </div>
+                    <div class="card mb-4 border-secondary">
+                        <div class="card-header">
+                            <h4 class="my-0 font-weight-normal">Scissors</h4>
+                        </div>
+                        <div class="card-body">
+                            <img class="card-img" src="{{ url_for('static', filename='images/Scissors.png') }}" />
+                            <input type="radio" class="btn-check btn-block" name="pick" id="scissors" value="scissors"
+                                autocomplete="off" disabled>
+                            <label class="btn btn-outline-primary" for="scissors">Scissors</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% elif stage == 1 %}
+            <p> Choose <b>rock</b> to proceed...</p>
+            <div class="container">
+                <div class="card-deck mb-3 text-center">
+                    <div class="card mb-4 border-secondary">
+                        <div class="card-header">
+                            <h4 class="my-0 font-weight-normal">Rock</h4>
+                        </div>
+                        <div class="card-body">
+                            <img class="card-img" src="{{ url_for('static', filename='images/Rock.png') }}" />
+                            <input type="radio" class="btn-check btn-block" name="pick" id="rock" value="rock"
+                                autocomplete="off">
+                            <label class="btn btn-outline-primary" for="rock">Rock</label>
+                        </div>
+                    </div>
+                    <div class="card mb-4 border-secondary">
+                        <div class="card-header">
+                            <h4 class="my-0 font-weight-normal">Paper</h4>
+                        </div>
+                        <div class="card-body">
+                            <img class="card-img" src="{{ url_for('static', filename='images/Paper.png') }}" />
+                            <input type="radio" class="btn-check btn-block" name="pick" id="paper" value="paper"
+                                autocomplete="off" disabled>
+                            <label class="btn btn-outline-primary" for="paper">Paper</label>
+                        </div>
+                    </div>
+                    <div class="card mb-4 border-secondary">
+                        <div class="card-header">
+                            <h4 class="my-0 font-weight-normal">Scissors</h4>
+                        </div>
+                        <div class="card-body">
+                            <img class="card-img" src="{{ url_for('static', filename='images/Scissors.png') }}" />
+                            <input type="radio" class="btn-check btn-block" name="pick" id="scissors" value="scissors"
+                                autocomplete="off" disabled>
+                            <label class="btn btn-outline-primary" for="scissors">Scissors</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            <input type="submit" class="btn-submit btn-primary btn-large btn-block" value="Play" />
+        </form>
+</body>
+
+</html>

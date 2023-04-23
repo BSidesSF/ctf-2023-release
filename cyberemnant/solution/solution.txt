@@ -1,0 +1,171 @@
+usbstick.bin is a 64MB image of a USB stick which contains
+an MSDOS partition table with one partition formatted with NTFS.
+
+The NTFS partition contains one file, cyberspacereport.pdf
+
+The PDF is heavily redacted (though the redaction for all of the text
+can be trivially bypassed). The images in the PDF have all been
+destructively redacted.
+
+All of the redacted versions of the images contained in the PDF were
+once stored on the USB stick but have been deleted. NTFS filesystem
+forensics tools can easily recover all of the redacted images. They
+were stored in JPEG, PNG, and TIFF format for good measure.
+
+The redacted PDF was written over the original un-redacted version of
+the PDF. The redacted version is substantially smaller leaving a large
+portion of the unredacted version still on disk.
+
+Every image in the unredacted version was embedded in the PDF in
+uncompressed form. The start of each of their stream in the PDF looks
+like:
+
+000004f0  0a 65 6e 64 6f 62 6a 0a  0a 34 20 30 20 6f 62 6a  |.endobj..4 0 obj|
+00000500  0a 3c 3c 2f 54 79 70 65  2f 58 4f 62 6a 65 63 74  |.<</Type/XObject|
+00000510  2f 53 75 62 74 79 70 65  2f 49 6d 61 67 65 2f 57  |/Subtype/Image/W|
+00000520  69 64 74 68 20 31 30 32  34 2f 48 65 69 67 68 74  |idth 1024/Height|
+00000530  20 31 30 32 34 2f 42 69  74 73 50 65 72 43 6f 6d  | 1024/BitsPerCom|
+00000540  70 6f 6e 65 6e 74 20 38  2f 4c 65 6e 67 74 68 20  |ponent 8/Length |
+00000550  35 20 30 20 52 0a 2f 46  69 6c 74 65 72 2f 46 6c  |5 0 R./Filter/Fl|
+00000560  61 74 65 44 65 63 6f 64  65 2f 43 6f 6c 6f 72 53  |ateDecode/ColorS|
+00000570  70 61 63 65 2f 44 65 76  69 63 65 52 47 42 0a 3e  |pace/DeviceRGB.>|
+00000580  3e 0a 73 74 72 65 61 6d  0a 78 9c 6c fd 07 5c 14  |>.stream.x.l..\.|
+
+Note the `Filter/FlateDecode` indicates that the raw RGB image data
+has been compressed with zlib deflate.
+
+Every PDF stream starts with a `stream\n` and ends with a `\nendstream`.
+
+The PDF is located at offset 36175873 into the USB stick (easy to get
+via many means). All the data from that point on (30MB is sufficient)
+can be extracted with
+
+dd if=usbstick.bin bs=1 skip=36175873 count=30000000 > /tmp/out.bin
+
+The start of images can be found with:
+
+$ xzcat usbstick.bin.xz | egrep -abo 'Image/.{1,200}'
+39017098:Image/Width 1024/Height 1024/BitsPerComponent 8/Length 10 0 R
+40498589:Image/Width 1024/Height 1024/BitsPerComponent 8/Length 15 0 R
+42459398:Image/Width 1024/Height 1024/BitsPerComponent 8/Length 20 0 R
+43968638:Image/Width 1024/Height 1024/BitsPerComponent 8/Length 25 0 R
+45297163:Image/Width 1024/Height 1024/BitsPerComponent 8/Length 30 0 R
+46456813:Image/Width 1024/Height 1024/BitsPerComponent 8/Length 35 0 R
+47939690:Image/Width 1024/Height 1024/BitsPerComponent 8/Length 40 0 R
+50532858:Image/Width 1024/Height 1024/BitsPerComponent 8/Length 45 0 R
+53357983:Image/Width 1024/Height 1024/BitsPerComponent 8/Length 50 0 R
+55626489:Image/Width 1024/Height 1024/BitsPerComponent 8/Length 55 0 R
+58231804:Image/Width 1024/Height 1024/BitsPerComponent 8/Length 60 0 R
+59794219:Image/Width 1024/Height 1024/BitsPerComponent 8/Length 65 0 R
+
+The last image at offset 59794219 contains the flag.
+
+We can locate the endstreams with:
+
+$ xzcat usbstick.bin.xz | egrep -abo 'endstream'
+[...]
+50532785:endstream
+53356438:endstream
+53357910:endstream
+55625030:endstream
+55626416:endstream
+58230403:endstream
+58231731:endstream
+59792726:endstream
+59794146:endstream
+62539962:endstream
+62540416:endstream
+62560552:endstream
+62561279:endstream
+
+The first endstream after the lastimage is 62539962 meaning the image
+data is contained between 59794219 and 62539962. By using hexdump and
+to narrow down the exact offsets like so:
+
+$ xzcat usbstick.bin.xz | dd bs=1 skip=59794219 count=2745743 | hexdump -vC | head
+00000000  49 6d 61 67 65 2f 57 69  64 74 68 20 31 30 32 34  |Image/Width 1024|
+00000010  2f 48 65 69 67 68 74 20  31 30 32 34 2f 42 69 74  |/Height 1024/Bit|
+00000020  73 50 65 72 43 6f 6d 70  6f 6e 65 6e 74 20 38 2f  |sPerComponent 8/|
+00000030  4c 65 6e 67 74 68 20 36  35 20 30 20 52 0a 2f 46  |Length 65 0 R./F|
+00000040  69 6c 74 65 72 2f 46 6c  61 74 65 44 65 63 6f 64  |ilter/FlateDecod|
+00000050  65 2f 43 6f 6c 6f 72 53  70 61 63 65 2f 44 65 76  |e/ColorSpace/Dev|
+00000060  69 63 65 52 47 42 0a 3e  3e 0a 73 74 72 65 61 6d  |iceRGB.>>.stream|
+00000070  0a 78 9c 6c fd 57 8c 6d  dd 96 1e 86 55 d8 7b af  |.x.l.W.m....U.{.|
+00000080  9c 73 4e 3b c7 da bb 72  3a 55 e7 d4 c9 39 fd 39  |.sN;...r:U...9.9|
+00000090  a7 7b 6f df dc 37 f4 bd  dd b7 03 db 9d 9b cd 66  |.{o..7.........f|
+
+Looking for where `stream\n` starts the exact starting offset can be found at 59794332:
+
+$ xzcat usbstick.bin.xz | dd bs=1 skip=59794332 count=2745743 | hexdump -vC | head
+00000000  78 9c 6c fd 57 8c 6d dd  96 1e 86 55 d8 7b af 9c  |x.l.W.m....U.{..|
+00000010  73 4e 3b c7 da bb 72 3a  55 e7 d4 c9 39 fd 39 a7  |sN;...r:U...9.9.|
+00000020  7b 6f df dc 37 f4 bd dd  b7 03 db 9d 9b cd 66 68  |{o..7.........fh|
+00000030  92 cd 24 92 22 4d 52 6a  4a 16 01 0a 94 4c c0 80  |..$."MRjJ....L..|
+00000040  2d cb 26 2c da 32 64 1b  7a 31 4c 43 4f 06 f4 e0  |-.&,.2d.z1LCO...|
+00000050  67 03 7a 90 bf 31 e7 3e  d5 17 82 0a eb af bf 4e  |g.z..1.>.......N|
+00000060  d5 0e 6b af 35 e7 18 df  37 c2 37 0a a7 88 f5 30  |..k.5...7.7....0|
+00000070  d2 02 5b 34 0d 49 53 da  92 d2 91 c5 6d 41 c7 cf  |..[4.IS.....mA..|
+00000080  1d 4d ea 18 aa e2 e8 9a  a3 c8 a6 24 6a 92 a8 4b  |.M.........$j..K|
+00000090  1d 4d 68 29 42 5b 96 45  45 12 64 51 94 45 49 c3  |.Mh)B[.EE.dQ.EI.|
+
+Likewise the length can be narrowed down:
+
+$ xzcat usbstick.bin.xz | dd bs=1 skip=59794332 count=2745643 | hexdump -vC | tail
+0029e4a0  b2 0a 9e 84 c4 60 a1 09  fa 43 82 e5 8c 14 ed 8b  |.....`...C......|
+0029e4b0  66 1d 82 d5 17 6c 7d 56  70 3e 67 61 96 31 b8 b5  |f....l}Vp>ga.1..|
+0029e4c0  6a 53 b0 20 4c 0a 96 fe  01 ac 05 1c 58 72 19 86  |jS. L.......Xr..|
+0029e4d0  e3 65 e4 89 aa 7b 00 0b  0e 16 72 b1 6a 47 a1 a7  |.e...{....r.jG..|
+0029e4e0  27 d7 df 9d eb df d2 b7  e2 67 a7 1d f8 d3 49 17  |'........g....I.|
+0029e4f0  fe f1 c4 0b 9e 38 ed d2  9f 9f 7a f0 d6 6d 27 5c  |.....8....z..m'\|
+0029e500  b1 62 cf ae 8e f9 8e 74  5f 3c d1 6f 06 7b 64 ad  |.b.....t_<.o.{d.|
+0029e510  26 2a 95 7f 35 fc ff ff  01 32 db 47 e8 0a 65 6e  |&*..5....2.G..en|
+0029e520  64 73 74 72 65 61 6d 0a  65 6e 64                 |dstream.end|
+
+The correct length is 2745629:
+
+$ xzcat usbstick.bin.xz | dd bs=1 skip=59794332 count=2745629 | hexdump -vC | tail
+0029e490  be d4 d4 0c b7 03 16 83  06 ac ee 5d 28 c6 00 73  |...........](..s|
+0029e4a0  b2 0a 9e 84 c4 60 a1 09  fa 43 82 e5 8c 14 ed 8b  |.....`...C......|
+0029e4b0  66 1d 82 d5 17 6c 7d 56  70 3e 67 61 96 31 b8 b5  |f....l}Vp>ga.1..|
+0029e4c0  6a 53 b0 20 4c 0a 96 fe  01 ac 05 1c 58 72 19 86  |jS. L.......Xr..|
+0029e4d0  e3 65 e4 89 aa 7b 00 0b  0e 16 72 b1 6a 47 a1 a7  |.e...{....r.jG..|
+0029e4e0  27 d7 df 9d eb df d2 b7  e2 67 a7 1d f8 d3 49 17  |'........g....I.|
+0029e4f0  fe f1 c4 0b 9e 38 ed d2  9f 9f 7a f0 d6 6d 27 5c  |.....8....z..m'\|
+0029e500  b1 62 cf ae 8e f9 8e 74  5f 3c d1 6f 06 7b 64 ad  |.b.....t_<.o.{d.|
+0029e510  26 2a 95 7f 35 fc ff ff  01 32 db 47 e8           |&*..5....2.G.|
+
+
+Using any utility/script that can inflate zlib can extract the image data:
+
+```
+$ xzcat usbstick.bin.xz | dd bs=1 skip=59794332 count=2745629 | ~/projects/misc_perl/zlibinflate.pl > raw.data
+
+$ cat ~/projects/misc_perl/zlibinflate.pl
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+
+use IO::Uncompress::Inflate qw(inflate $InflateError) ;
+
+my $input;
+{
+    local $/ = undef;
+    $input = <STDIN>;
+}
+
+my $output;
+my $outref = \$output;
+
+my $inref = \$input;
+
+inflate $inref => $outref
+    or die "inflate failed: $InflateError\n";
+
+print $output;
+```
+
+The raw RGB image contains the flag:
+
+CTF{CYBER_IN_SPAAAAACE}
+

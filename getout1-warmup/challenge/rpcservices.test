@@ -1,0 +1,9 @@
+# This is a services file
+#
+# Each line is in the format:
+#
+# service_name service_executable
+
+ping ./rpcping
+gettoken ./gettoken
+apply ./apply

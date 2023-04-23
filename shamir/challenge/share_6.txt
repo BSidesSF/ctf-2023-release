@@ -1,0 +1,7 @@
+Share 6 of 7 (min 5):
+(x6, y6) = (6, 338337360147368973687481536)
+
+Field prime = 2^89 - 1
+Flag = CTF{secretasletters}
+Secret -> base 27
+a = 1, b = 2, ... z = 26 (base 27)

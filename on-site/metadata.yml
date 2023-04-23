@@ -1,0 +1,18 @@
+version: beta1
+name: on-site
+author: BSidesSF
+flag: "CTF{hack_the_space}"
+description: "If you've come to visit us in-person, you'll get the flag."
+value: 1
+
+# List of tags, must match tags defined in config.yml
+tags:
+  - On-Site
+
+# Scored: default true, if false, this runs but not added to the scoreboard.
+scored: true
+
+# Scoring metadata
+scoring:
+  flag_type: static
+  mode: static

@@ -1,0 +1,3 @@
+sandboxed
+core*
+!libseccomp.a

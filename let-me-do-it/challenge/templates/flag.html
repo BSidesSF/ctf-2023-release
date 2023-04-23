@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Let me do it</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+
+<body>
+  <div class="layout">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <span class="navbar-brand">Let me do it</span>
+        <div class="collapse navbar-collapse" id="navbarColor01">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/login">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Flag
+                <span class="visually-hidden">(current)</span>
+              </a>
+            </li>
+          </ul>
+      </div>
+      </div>
+    </nav>
+    <main class="main">
+      <div class="container">
+        <div class="content">
+          <img src="{{ url_for('static', filename='img/banner.png') }}" class="banner-img" />
+          {% if logged_in %}
+            <h3 class="h3-title">Welcome, {{ user }}!</h3>
+            <!-- Image from https://www.reddit.com/r/StableDiffusion/comments/11424g4/let_me_do_it_for_you_control/ -->
+            <img src="{{ url_for('static', filename='img/borzoi-flag.png') }}" class="flag-img"/>
+            <h3 class="h3-title">I did it for you, here is the flag: {{ flag }}</h3>
+          {% else %}
+            <h3 class="h3-title">I cannot do it for you, if you are not logged in!</h3>
+            {% if error != "" %}
+              <h3 class="h3-title">Error: {{ error }}</h3>
+            {% endif %}
+          {% endif %}
+
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

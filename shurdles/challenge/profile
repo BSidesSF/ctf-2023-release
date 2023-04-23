@@ -1,0 +1,4 @@
+echo "Welcome to shell hurdles!"
+echo "The binary /home/ctf/shurdles will dump the flag..."
+echo "if you can meet its conditions."
+echo ""

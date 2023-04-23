@@ -1,0 +1,31 @@
+# This is the standard metadata for a challenge with a web component.
+# In terms of file structure, please also have the following:
+#
+# - A challenge/ folder with everything needed to create the challenge assets
+# - A distfiles/ folder which contains all files (or symlinks to files) that
+#   will be attached to the challenge
+# - A solution/ folder with a working solution to the challenge (or a README.md
+#   file documenting the solution)
+
+version: release
+name: prototype
+author: Matthias Penner
+flag: 'CTF{pR01ot4pe_po1lutI0n}'
+description: Web challenge with a little bit of the old and a little bit of the new
+value: 1000
+tags:
+  - Web
+# This *must* be the port on which your service is listening inside the
+# container.  It *must* also return 200 for a GET / HTTP/1.1.
+port: 8000
+protocol: http # accepted: http, https, tcp, udp
+flag_path: /path/to/ctf/flag.txt # Optional; but helpful for players
+notes: Private notes on deployment, setup, etc.
+webbot:
+  # cookies: %(hostname)s replaced by hostname of service
+  cookies:
+    - "session=d3f93a1c-80e9-11ed-a1eb-0242ac120002;URL=http://127.0.0.1:8000"
+  # urls: urls to be periodically visited
+  urls:
+    - "http://127.0.0.1:8000/admin"
+replicas: 1

@@ -1,0 +1,11 @@
+version: beta1
+name: "ROP Petting Zoo 2"
+author: ron
+flag: 'CTF{getting-more-good-at-rop}'
+description: "Let's practice ROP'ing! Complete 'Level 2' of the ROP Petting Zoo (linked below)!"
+value: 1000
+tags:
+  - Pwn
+  - '101'
+
+service_from_challenge: rop-petting-zoo-1

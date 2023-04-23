@@ -1,0 +1,34 @@
+# This is the standard metadata for a challenge with a server-side component.
+# In terms of file structure, please also have the following:
+#
+# - A challenge/ folder with everything needed to create the challenge assets
+# - A distfiles/ folder which contains all files (or symlinks to files) that
+#   will be attached to the challenge
+# - A solution/ folder with a working solution to the challenge (or a README.md
+#   file documenting the solution)
+
+version: beta1
+name: crossworthy
+author: ron
+flag: 'CTF{crypto-shell-heap-cred}'
+description: |
+  Solve the crossword! It's attached to this challenge in a variety of formats,
+  and you can also find it in the physical program at the conference!
+
+  The four long symmetric answers (with circles in them) form the "theme"
+  answers, and have special parenthetical clues. The parenthetical clues refer
+  specifically to the circled letters, which form visual representations of
+  four common security attacks - can you figure them out?
+
+  The flag for this challenge is `CTF{word1-word2-word3-word4}`, where the four
+  words are the circled letters in the "theme" answers.
+
+  This puzzle tries to use [standard conventions for American
+  crosswords](https://www.nytimes.com/crosswords/tips-and-tricks). You can find
+  some hints on solving this style of puzzle
+  [here](https://www.nytimes.com/guides/crosswords/how-to-solve-a-crossword-puzzle)!
+  Don't be afraid to look up answers if you aren't a cross-nerd. :)
+
+value: 1000
+tags:
+  - Misc

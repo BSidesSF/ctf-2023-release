@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Let me do it - Home</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+
+<body>
+  <div class="layout">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <span class="navbar-brand">Let me do it</span>
+        <div class="collapse navbar-collapse" id="navbarColor01">
+          <ul class="navbar-nav me-auto">
+              <li class="nav-item">
+                  <a class="nav-link active" href="#">Home
+                      <span class="visually-hidden">(current)</span>
+                  </a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="/login">Login</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="/flag">Flag</a>
+              </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <main class="main">
+      <div class="container">
+        <div class="content">
+          <img src="{{ url_for('static', filename='img/banner.png') }}" class="banner-img" />
+          <h3 class="h3-title">Welcome to our new site!</h3>
+          <form action="/flag" method="post">
+            <input type="hidden" name="id_token" id="id_token"/>
+            <button type="submit" class="home-btn btn btn-dark submit" value="submit">
+              Get the flag for me!
+            </button>
+          </form>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

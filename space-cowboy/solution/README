@@ -1,0 +1,12 @@
+* Register a new user on the Space Cowboy app 
+* You need 500 coins to launch a rocket but only start off with 100 coins
+* You can redeem coupons to get more coins, each coupon gives you 100 coins 
+* When you try to redeem a coupon, you will notice the app validates the coupon before sending it to the server 
+* The coupon is 10 characters long, the first 8 characters are a fixed prefix (varies per user, per day)
+* Coupon is the first 8 characters of the MD5 hash of the following 3 parts, 
+** First 3 characters of Firebase userid
+** 2 digit format of current day (uses 0 prefix if needed)
+** First 2 characters of current month name
+* The last two characters don't matter as long as the coupon hasn't been redeemed previously 
+* Use the script, `python get_prefix.py <firebase-userid>` to determine the coupon prefix and redeem 4 coupons in the app 
+* Launch the rocket once you have 500 coins and fetch the flag 

@@ -1,0 +1,46 @@
+flag.jpg has a bookshelf configuration set by the key used to generate
+the image.
+
+The embedded comment (set by the message) is
+91ff2037324851c5825caa4e676eeaa4d7fa62636806bf20702c53b22345ea This
+comment is encrypted with the key.
+
+First players need to use the codebook tool to determine that the key
+controls the bookshelf configuration and the msg controlls the
+comment.
+
+By changing the message players can determine the msg is encrypted via
+XOR.
+
+By changing the key players can slowly enumerate how the bookshelves
+are changed.
+
+Keys of 0, 1, 2, ... A, B, ... a, b, ... z can be used to see the
+lower right bookshelf being changed.
+
+At this point, players can binary search their way to the bookshelf
+configuraiton in flag.jpg however the key is 516 bits so this binary
+search would be extremely tedious. Automating it would be a lot of
+work.
+
+Alternatively, players can enumerate the 72 unique shelves in the
+grid, see that 73 - 144 are mirrored. Once they have shelf -> number
+the key can be read out of flag.jpg (in base 144) and converted to
+base 62.
+
+A clever player might even notice that the shelves enumerated match
+the same order as the shelves in flag.jpg and simply guess that the
+key is the shelves 0 though 71 in order.
+
+However players come to it, the key is
+3OKw89wWk3dwySCYOibzU6cVKHm6Ak90j7lEktPL7gTBaDd5CMjgnbzNGkbsErnQ71LE3SJ5vRV2V7eYYUYdz
+
+Once the key is determined players can encrypt a msg like AAAAA.... to
+get:
+93ea270d1e704fe8aa7f996e5456f496e2d451475a18cb500732709a1677d6
+
+Which when XOR'd with the flag comment:
+
+$ perl -e 'print "decoded: ", (pack("H*", "91ff2037324851c5825caa4e676eeaa4d7fa62636806bf20702c53b22345ea") ^ "A"x31 ^ pack("H*", "93ea270d1e704fe8aa7f996e5456f496e2d451475a18cb500732709a1677d6")), "\n";'
+decoded: CTF{my_library_stores_516_bits}
+

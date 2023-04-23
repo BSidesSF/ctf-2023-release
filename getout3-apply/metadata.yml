@@ -1,0 +1,25 @@
+version: beta1
+name: getout3 (application)
+author: ron
+flag: 'CTF{human-eating-machine-is-shut-down}'
+description: |
+  Greetings, human.
+
+  As the final task before moving you to Space Paradise, we need you to upgrade
+  your flavor profi-- err, your technical specifications.
+
+  Using the "Get Out Solutions" tool, please connect to the `apply` RPC service
+  and follow the instructions! Have your token ready.
+
+  > *bzzzzt* okay, we analyzed the token you found and we think we see what's
+  > going on. We're attaching the `apply` executable, your job now is to gain
+  > access to the system and run `/bin/shutdown`.
+  >
+  > Can YOU save all of humanity??
+value: 1000
+tags:
+  - RE
+  - Pwn
+
+# Use the same server as part 1
+service_from_challenge: getout1-warmup

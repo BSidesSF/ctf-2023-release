@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Let me do it - Login</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+
+<body>
+  <div class="layout">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <span class="navbar-brand">Let me do it</span>
+        <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                  <a class="nav-link" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" href="#">Login
+                    <span class="visually-hidden">(current)</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/flag">Flag</a>
+                </li>
+              </ul>
+      </div>
+      </div>
+    </nav>
+    <main class="main">
+      <div class="container">
+        <div class="content">
+          <img src="{{ url_for('static', filename='img/banner.png') }}" class="banner-img" />
+          <h3 class="h3-title">Login (under construction)</h3>
+          <!-- To-do implement Sign-in with Google -->
+          <button type="submit" class="home-btn btn btn-dark submit" disabled>
+            Sign in with Google
+          </button>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

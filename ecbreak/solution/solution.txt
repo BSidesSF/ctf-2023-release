@@ -1,0 +1,7 @@
+Extract encrypted tiff attachment from email
+
+Interpret encrypted file as RGB + Alpha image (width 1500) CTF flag
+easily read through ECB encryption. Discard alpha channel to make
+reading even easier.
+
+CTF{gotta_mix_those_bits}

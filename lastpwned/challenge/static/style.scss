@@ -1,0 +1,80 @@
+@charset "utf-8";
+
+/* Bulma config goes here */
+
+@import "bulma/bulma.sass";
+
+/* BSidesSF Colors */
+$blue: #0ebdf0;
+$dark-pink: #982458;
+$light-pink: #ee0287;
+$dark-blue: #092047;
+
+html {
+  font-size: 16px;
+  line-height: 1.5;
+  height: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+
+  body {
+    background-color: $light;
+    height: 100vh;
+    transition: all 0.4s ease;
+
+    .subtitle, .title {
+      color: $dark;
+    }
+
+    &.dark {
+      background-color: $dark;
+      color: $light;
+
+      .subtitle, .title {
+        color: $light;
+      }
+    }
+  }
+}
+
+
+.section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+}
+
+button{
+    cursor: pointer;
+    border: none;
+    color: $light;
+    padding: .8rem;
+    background: $dark;
+    border-radius: 6px;
+}
+
+body.dark button {
+    background: $light;
+    color: $dark;
+}
+
+nav {
+  &.navbar {
+    border-top: 4px solid;
+    margin-bottom: 1rem;
+  }
+
+  .brand-text {
+    font-weight: 300;
+  }
+}
+
+.navbar-item, .navbar-link {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.password-eye {
+  pointer-events: auto;
+}

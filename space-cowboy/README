@@ -1,0 +1,33 @@
+# Deployment tasks (saving for reference later_
+## Firebase deployment
+* Activate Firebase Auth with email in new project 
+* Setup for Android app com.example.spacecowboy
+* Activate Firestore DB 
+* Setup Firestore rules
+```
+
+rules_version = '2';
+service cloud.firestore {
+match /databases/{database}/documents {
+    // Make sure the uid of the requesting user matches name of the user
+    // document. The wildcard expression {userId} makes the userId variable
+    // available in rules.
+    match /users/{userId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+    match /users/{userId}/coupons/{coupon} {
+      allow read, create: if request.auth != null && request.auth.uid == userId;
+    }
+  }
+}
+
+```
+## Server - Flask deployment
+* Export the firebase service account key for the server (Flask backend)
+* Rename the key to `bsidessf-ctf-2023-firebase-adminsdk.json`
+* Deploy the server 
+
+## Android App  
+* Export the google-services.json and place it in the app/ folder
+* Update the server URL in `ReloadActivity.java` and `FragmentThird.java`
+* Build the APK and place in /distfiles

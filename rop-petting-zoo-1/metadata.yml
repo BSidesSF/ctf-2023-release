@@ -1,0 +1,12 @@
+version: beta1
+name: "ROP Petting Zoo 1"
+author: ron
+flag: 'CTF{getting-started-on-rop}'
+description: "Let's learn how to do ROP! Complete 'Level 1' of the ROP Petting Zoo (linked below)!"
+value: 1000
+tags:
+  - Pwn
+  - '101'
+
+port: 8080
+protocol: http # accepted: http, https, tcp, udp
