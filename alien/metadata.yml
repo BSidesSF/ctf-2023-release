@@ -1,0 +1,31 @@
+# This is the standard metadata for a challenge with a web component.
+# In terms of file structure, please also have the following:
+#
+# - A challenge/ folder with everything needed to create the challenge assets
+# - A distfiles/ folder which contains all files (or symlinks to files) that
+#   will be attached to the challenge
+# - A solution/ folder with a working solution to the challenge (or a README.md
+#   file documenting the solution)
+
+version: beta1
+name: alien
+author: symmetric
+
+flag: 'CTF{wegivetech}'
+
+description: |
+  An alien probe has entered our solar system
+  and transmitted a visual language to us. Now any binary stream we
+  send to the probe seems to be translated into their language and sent
+  back at us. Help us translate the message they first sent to us!
+
+value: 1000
+tags:
+  - Forensics
+  - Misc
+# This *must* be the port on which your service is listening inside the
+# container.  It *must* also return 200 for a GET / HTTP/1.1.
+port: 5440
+protocol: http # accepted: http, https, tcp, udp
+resources:
+  nodepool: highperf  # run on nodepool tagged "highperf"

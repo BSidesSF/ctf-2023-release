@@ -1,0 +1,1 @@
+../../getout1-warmup/solution/libgetout.rb

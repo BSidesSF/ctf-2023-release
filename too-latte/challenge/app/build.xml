@@ -1,0 +1,54 @@
+<project name="TooLatte" default="dist" basedir=".">
+  <description>
+  </description>
+  <!-- set global properties for this build -->
+
+  <property name="src" location="src"/>
+  <property name="build" location="build"/>
+  <property name="resources" location="resources"/>
+
+  <!-- Put the servlets straight in the webroot -->
+  <property name="dist" location="webapp/WEB-INF/lib/"/>
+
+  <target name="init">
+    <!-- Create the time stamp -->
+    <tstamp/>
+    <!-- Create the build directory structure used by compile -->
+    <mkdir dir="${build}"/>
+  </target>
+
+  <target name="compile" depends="init" description="compile the source">
+    <!-- Compile the Java code from ${src} into ${build} -->
+    <javac srcdir="${src}" destdir="${build}">
+      <classpath>
+        <pathelement path="lib/bc-fips-1.0.2.3.jar"/>
+        <pathelement path="lib/commons-codec-1.15.jar"/>
+        <pathelement path="lib/commons-io-2.11.0.jar"/>
+        <pathelement path="lib/servlet-api.jar"/>
+        <pathelement path="lib/commons-beanutils-1.9.4.jar"/>
+        <pathelement path="lib/commons-collections-3.2.2.jar"/>
+        <pathelement path="lib/commons-logging-1.2.jar"/>
+      </classpath>
+    </javac>
+  </target>
+
+  <target name="dist" depends="compile" description="generate the distribution">
+    <mkdir dir="${dist}"/>
+
+    <jar jarfile="${dist}/TooLatte.jar">
+      <fileset dir="${build}"/>
+      <fileset dir="${resources}" />
+    </jar>
+
+    <copy todir="${dist}">
+      <fileset dir="lib/"/>
+    </copy>
+
+  </target>
+
+  <target name="clean" description="clean up">
+    <!-- Delete the ${build} and ${dist} directory trees -->
+    <delete dir="${build}"/>
+    <delete dir="${dist}"/>
+  </target>
+</project>

@@ -1,0 +1,30 @@
+VERSION 0.7
+FROM alpine
+WORKDIR /src
+
+deps:
+    RUN apk --no-cache add build-base linux-headers
+
+build:
+    FROM +deps
+    COPY *.h .
+    COPY libseccomp.a .
+    COPY Makefile .
+    COPY sandboxed.c .
+    RUN make
+    SAVE ARTIFACT sandboxed AS LOCAL sandboxed
+
+docker:
+    RUN adduser -u 1000 -D ctf
+    RUN apk --no-cache add tini socat strace
+    BUILD +build
+    COPY +build/sandboxed /sandboxed
+    USER 1000
+
+    EXPOSE 6969/tcp
+    ENTRYPOINT ["/sbin/tini"]
+    CMD ["/usr/bin/socat", "TCP4-LISTEN:6969,reuseaddr,fork", "EXEC:/sandboxed"]
+    ARG CVERSION=local-build
+    SAVE IMAGE \
+      us-west1-docker.pkg.dev/bsides-sf-ctf-2023/challenges/sandboxed:latest \
+      us-west1-docker.pkg.dev/bsides-sf-ctf-2023/challenges/sandboxed:${CVERSION}

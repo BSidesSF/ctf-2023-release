@@ -1,0 +1,157 @@
+cosypher takes a key and uses each 4 bits in the key as a frequency
+to a series of cosine waves.
+
+A simplified example with key 0x1234:
+
+y = a * cos(1 * x) + b * cos(2 * x) + c * cos(3 * x) + d * cos(4 * x)
+
+Where x is a byte to be encrypted and y is the result of the encryption.
+
+Importantly, since the key is turned into a series of frequencies, analysis
+of the resulting sum of frequencies can be used to recover the amplitude of
+individual frequencies.
+
+This can be done exactly with a Discrete Cosine Transform (DCT) see
+https://en.wikipedia.org/wiki/Discrete_cosine_transform#Formal_definition
+
+First, collect the output of all frequencies summed together for each key byte:
+
+perl -e 'for (my $i = 0; $i < 256; $i++) { print sprintf("%02x", $i); } print "\n";'
+000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f202122232425262728292a2b2c2d2e2f303132333435363738393a3b3c3d3e3f404142434445464748494a4b4c4d4e4f505152535455565758595a5b5c5d5e5f606162636465666768696a6b6c6d6e6f707172737475767778797a7b7c7d7e7f808182838485868788898a8b8c8d8e8f909192939495969798999a9b9c9d9e9fa0a1a2a3a4a5a6a7a8a9aaabacadaeafb0b1b2b3b4b5b6b7b8b9babbbcbdbebfc0c1c2c3c4c5c6c7c8c9cacbcccdcecfd0d1d2d3d4d5d6d7d8d9dadbdcdddedfe0e1e2e3e4e5e6e7e8e9eaebecedeeeff0f1f2f3f4f5f6f7f8f9fafbfcfdfeff
+
+Have cosypher encrypt the above plaintext:
+
+cosypher AEAD> encrypt 000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f202122232425262728292a2b2c2d2e2f303132333435363738393a3b3c3d3e3f404142434445464748494a4b4c4d4e4f505152535455565758595a5b5c5d5e5f606162636465666768696a6b6c6d6e6f707172737475767778797a7b7c7d7e7f808182838485868788898a8b8c8d8e8f909192939495969798999a9b9c9d9e9fa0a1a2a3a4a5a6a7a8a9aaabacadaeafb0b1b2b3b4b5b6b7b8b9babbbcbdbebfc0c1c2c3c4c5c6c7c8c9cacbcccdcecfd0d1d2d3d4d5d6d7d8d9dadbdcdddedfe0e1e2e3e4e5e6e7e8e9eaebecedeeeff0f1f2f3f4f5f6f7f8f9fafbfcfdfeff
+Encrypted result:
+fffffce6f3e5e5c9d3d1bf87aa94969384e3768a6c1765a462d96300652a68506b7b6de46f0c6ec86d436aee686b667365b166ac69ae6eb7757d7d7785e88e0094f39a129ce39d309b0996bf90dc8a0982ff7c6a76da72af701a6f176f7370df72f8755e77bb79d17b827cc87db97e787f2d7ffb80f78224837184ba85d4869086c5865a8547839a81757f047c7d7a0f77de75fe746c731371ce70726ed46cd76a7167b064c061e05f605d965ccf5d455f17623e66926bc97182774f7cc5818b8561882c89f48ae78b4b8b768bbc8c658d9e8f7291ca946a96ff99269a809abb99a39727935f8e8788fa83247d767855740f70d36eaa6d7d6d176d346d8b6ddc6dfc6ddd6d8c6d356d186d7e6eab70d4741078567d75832588fb8e889360972899a49abc9a8199279700946b91cb8f738d9f8c668bbd8b778b4c8ae889f5882d8562818c7cc6775071836bca6693623f5f185d465cd05d975f6161e164c167b16a726cd86ed5707371cf7314746d75ff77df7a107c7e7f058176839b8548865b86c6869185d584bb8372822580f87ffc7f2e7e797dba7cc97b8379d277bc755f72f970e06f746f18701b72b076db7c6b83008a0a90dd96c09b0a9d319ce49a1394f48e0185e97d78757e6eb869af66ad65b26674686c6aef6d446ec96f0d6de56b7c6851652b630162da65a56c18768b84e49694aa95bf88d3d2e5caf3e6fce7
+
+A graph can be made of 00 -> ffff, 01 -> fce6, etc and you'll see
+that it's a bunch of cosine waves summed together.
+
+For each of the 16 possible frequncies, a DCT can be done to extract
+the amplitude of each frequency:
+
+sub dct_freq {
+    my $kfreq = shift; # key nibble freq 0 to 15
+    my $yval_ref = shift;
+
+    die unless (scalar(@{$yval_ref}) == 256);
+
+    my $dct_f = 0.0;
+
+    for (my $x = 0; $x < 256; $x++) {
+	$dct_f += $yval_ref->[$x] * cos(((2.0 * pi) / 256.0) * ($kfreq + 1.0) * $x);
+    }
+
+    return $dct_f / 128.0;
+}
+
+This will give a set of amplitudes for each frequency.  Since
+the cosine waves were rescaled to fit into 0 to 65535 (see cosypher.go code)
+the frequencies need to be adjusted to reflect their original values. This
+scale factor depends only on the number of bits in the key which is why
+the number of bits are reported when cosypher starts up:
+
+my $klen = $keybits / 4;
+my $expected_dct_sum = (($klen * ($klen - 1)) / 2) * 256.0 + ($klen * 32.0) + ($klen / 3) * 4;
+my $dct_scale = ($expected_dct_sum * 1.0) / ($dct_sum * 1.0);
+
+The tricky bit is that the amplitudes of each frequency depend on the position
+of the those nibbles in the key. So for the simplified example above:
+
+A simplified example with key 0x1234:
+
+y = a * cos(1 * x) + b * cos(2 * x) + c * cos(3 * x) + d * cos(4 * x)
+
+DCT for frequency 1 would recover a, for 2 b, for 3 c, etc.
+
+If the key were 0x1122 then:
+
+y = a * cos(1 * x) + b * cos(1 * x) + c * cos(2 * x) + d * cos(2 * x)
+
+DCT for frequency 1 would recover a + b, for 2 c + d, for 3 would recover 0, and so on.
+
+
+Here is the DCT table for the key (flag) used by cosypher:
+
+Key bits 120; expected dct sum: 112360; dct scale factor: 3.429
+==dct table==
+0 : 1578.335 (rescaled coeff: 5412; copies: 1; pos sum: 21; mod copies: 1)
+1 : 2708.696 (rescaled coeff: 9288; copies: 2; pos sum: 36; mod copies: 2)
+2 : 606.599 (rescaled coeff: 2080; copies: 1; pos sum: 8; mod copies: 0)
+3 : 1735.723 (rescaled coeff: 5952; copies: 2; pos sum: 23; mod copies: 0)
+4 : 4772.158 (rescaled coeff: 16364; copies: 7; pos sum: 63; mod copies: 3)
+5 : 158.644 (rescaled coeff: 544; copies: 1; pos sum: 2; mod copies: 0)
+6 : 5489.535 (rescaled coeff: 18824; copies: 4; pos sum: 73; mod copies: 2)
+7 : 3761.939 (rescaled coeff: 12900; copies: 3; pos sum: 50; mod copies: 1)
+8 : 2407.656 (rescaled coeff: 8256; copies: 2; pos sum: 32; mod copies: 0)
+9 : 1130.362 (rescaled coeff: 3876; copies: 1; pos sum: 15; mod copies: 1)
+10: 830.549 (rescaled coeff: 2848; copies: 1; pos sum: 11; mod copies: 0)
+11: 531.998 (rescaled coeff: 1824; copies: 1; pos sum: 7; mod copies: 0)
+12: 1726.382 (rescaled coeff: 5920; copies: 1; pos sum: 23; mod copies: 0)
+13: 2174.332 (rescaled coeff: 7456; copies: 1; pos sum: 29; mod copies: 0)
+14: 1278.485 (rescaled coeff: 4384; copies: 1; pos sum: 17; mod copies: 0)
+15: 1875.749 (rescaled coeff: 6432; copies: 1; pos sum: 25; mod copies: 0)
+
+So frequency 1 corresponding to the hex nibble "1" has an aplitude of 9288.
+
+Amplitudes are carefully chosen for each position to leak information about
+that frequency.  Things that can be learned:
+
+1) The number of copies of that frequency
+2) The sum of the position of all those frequencies
+3) The number of times that frequency is in a position == 0 mod 3
+
+Here is the true key: 4, 3, 5, 4, 4, 6, 7, 11, 2, 1, 4, 10, 4, 8, 4, 9, 7, 14, 6, 8, 4, 0, 3, 12, 6, 15, 6, 1, 7, 13
+
+Notice frequency 13 only appears once so it has amplitude 7456.
+
+That means there is one 13 in the key:
+
+floor((7456 % 256) / 32) = 1
+
+The sum of all positions that 13 is in is 29:
+
+floor(7456 / 256) = 29
+
+And 0 of the copies of 13 are in positions of 0 mod 3:
+
+floor(((7456 % 256) % 32) / 4) = 0
+
+
+This provides a list set of properties about the key which can be used to solve for the key.
+See solve.pl for a full implimentation.
+
+Here is every key that meets the above constraints as found by the solver:
+
+candidate key 4354464b217a78494e68403c6f617d (CTFK!zxINh@<oa})
+candidate key 4354467b214a48497e68403c6f617d (CTF{!JHI~h@<oa})
+candidate key 4356444b217a78494e48603c6f617d (CVDK!zxINH`<oa})
+candidate key 4356447b214a48497e48603c6f617d (CVD{!JHI~H`<oa})
+candidate key 4356744b214a48494e78603c6f617d (CVtK!JHINx`<oa})
+candidate key 4356844b214a47494e77603c6f618d (CV�K!JGINw`<oa�)
+candidate key 4454367b218a44497e63408c6f617d (DT6{!�DI~c@�oa})
+candidate key 4456347b218a44497e43608c6f617d (DV4{!�DI~C`�oa})
+candidate key 4454864b213a73497e64407c6f618d (DT�K!:sI~d@|oa�)
+candidate key 4456844b213a73497e44607c6f618d (DV�K!:sI~D`|oa�)
+candidate key 4354447b264a18497e68603c1f647d (CTD{&JI~h`<d})
+candidate key 4354844b267a17494e64603c1f678d (CT�K&zINd`<g�)
+candidate key 4354746b244a18694e78403c1f667d (CTtk$JiNx@<f})
+candidate key 4354846b244a17694e77403c1f668d (CT�k$JiNw@<f�)
+candidate key 6354447b244a18497e48603c1f667d (cTD{$JI~H`<f})
+candidate key 6354744b244a18494e78603c1f667d (cTtK$JINx`<f})
+candidate key 6354844b244a17494e77603c1f668d (cT�K$JINw`<f�)
+candidate key 4454347b268a14497e63608c1f647d (DT4{&�I~c`�d})
+candidate key 4454346b278a17694e43408c1f667d (DT4k'�iNC@�f})
+candidate key 6454344b278a17494e43608c1f667d (dT4K'�INC`�f})
+candidate key 6454347b248a14497e43608c1f667d (dT4{$�I~C`�f})
+candidate key 4454846b273a13694e47407c1f668d (DT�k':iNG@|f�)
+candidate key 4754844b263a13494e64607c1f678d (GT�K&:INd`|g�)
+candidate key 6454844b273a13494e47607c1f668d (dT�K':ING`|f�)
+
+Only the second one found is in the correct CTF{} format which means the flag is:
+CTF{!JHI~h@<oa}
+
+If one assumes the flag is in the CTF{...} format then it's possible to solve
+the remaining constraints by hand rather easily and a backtracking solver like
+the one in solve.pl doesn't need to be written.

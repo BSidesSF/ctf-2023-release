@@ -1,0 +1,73 @@
+Cluster configuration is 2345 which can be red from the clusters in
+the flag image.  Seq is 23456 which can be deduced easily by checking
+the denominator on the rotations of the rings and spotting the
+repeating pattern.
+
+Then, annotating the flag (see image) and then performing chinese
+remainder theorem on each cluster produces the mixed-radix numerals.
+
+Converting those back into a number and then turning that number into
+binary (removing the leading 1) yields the flag.
+
+GP/PARI> chinese(Mod(1, 2), Mod(1, 3))
+%1 = Mod(1, 6)
+GP/PARI> chinese(Mod(5, 6), Mod(1, 2))
+%2 = Mod(5, 6)
+GP/PARI> chinese(Mod(0, 5), Mod(1, 6))
+%3 = Mod(25, 30)
+GP/PARI> chinese(Mod(1, 4), Mod(2, 5))
+%4 = Mod(17, 20)
+GP/PARI> chinese(Mod(2, 4), Mod(2, 3))
+%5 = Mod(2, 12)
+GP/PARI> chinese(Mod(0, 2), Mod(2, 3))
+%6 = Mod(2, 6)
+GP/PARI> chinese(Mod(0, 2), Mod(4, 6))
+%7 = Mod(4, 6)
+GP/PARI> chinese(chinese(Mod(2, 4), Mod(2, 6)), Mod(1, 5))
+%8 = Mod(26, 60)
+GP/PARI> chinese(chinese(Mod(1, 3), Mod(1, 4)), Mod(4, 5))
+%9 = Mod(49, 60)
+GP/PARI> chinese(chinese(Mod(0, 2), Mod(2, 3)), Mod(0, 4))
+%10 = Mod(8, 12)
+GP/PARI> chinese(chinese(Mod(0, 2), Mod(2, 3)), Mod(2, 6))
+%11 = Mod(2, 6)
+GP/PARI> chinese(chinese(Mod(0, 2), Mod(1, 5)), Mod(0, 6))
+%12 = Mod(6, 30)
+GP/PARI> chinese(chinese(Mod(1, 4), Mod(1, 5)), Mod(5, 6))
+%13 = Mod(41, 60)
+GP/PARI> chinese(chinese(Mod(1, 4), Mod(1, 5)), Mod(1, 3))
+%14 = Mod(1, 60)
+GP/PARI> chinese(chinese(chinese(Mod(0, 2), Mod(0, 3)), Mod(0, 4)), Mod(2, 5))
+%15 = Mod(12, 60)
+GP/PARI> chinese(chinese(chinese(Mod(0, 2), Mod(2, 3)), Mod(2, 4)), Mod(2, 6))
+%16 = Mod(2, 12)
+GP/PARI> chinese(chinese(chinese(Mod(1, 2), Mod(1, 3)), Mod(1, 5)), Mod(1, 6))
+%17 = Mod(1, 30)
+GP/PARI> chinese(chinese(chinese(Mod(1, 2), Mod(1, 4)), Mod(3, 5)), Mod(3, 6))
+%18 = Mod(33, 60)
+GP/PARI> chinese(chinese(chinese(Mod(0, 3), Mod(3, 4)), Mod(2, 5)), Mod(3, 6))
+%19 = Mod(27, 60)
+GP/PARI> chinese(chinese(chinese(Mod(0, 2), Mod(2, 3)), Mod(0, 4)), Mod(4, 5))
+%20 = Mod(44, 60)
+GP/PARI> chinese(chinese(chinese(chinese(Mod(0, 2), Mod(2, 3)), Mod(0, 4)), Mod(0, 5)), Mod(2, 6))
+%21 = Mod(20, 60)
+GP/PARI> chinese(chinese(chinese(chinese(Mod(0, 2), Mod(2, 3)), Mod(2, 4)), Mod(0, 5)), Mod(2, 6))
+%22 = Mod(50, 60)
+GP/PARI> chinese(chinese(chinese(chinese(Mod(0, 2), Mod(0, 3)), Mod(2, 4)), Mod(3, 5)), Mod(0, 6))
+%23 = Mod(18, 60)
+GP/PARI> chinese(chinese(chinese(chinese(Mod(1, 2), Mod(2, 3)), Mod(3, 4)), Mod(4, 5)), Mod(5, 6))
+%24 = Mod(59, 60)
+GP/PARI> chinese(chinese(chinese(chinese(Mod(0, 2), Mod(1, 3)), Mod(0, 4)), Mod(4, 5)), Mod(4, 6))
+%25 = Mod(4, 60)
+GP/PARI> chinese(chinese(chinese(chinese(Mod(1, 2), Mod(1, 3)), Mod(1, 4)), Mod(2, 5)), Mod(1, 6))
+%26 = Mod(37, 60)
+GP/PARI> n = (((((((((((((((((((((((((1)*6+4)*60+37)*60+44)*60+41)*6+2)*60+4)*60+27)*30+6)*12+2)*60+59)*60+33)*6+2)*20+17)*60+18)*30+1)*12+8)*30+25)*60+50)*12+2)*60+49)*6+5)*60+20)*60+12)*60+26)*6+1
+%27 = 1678821191895829310022960154537060477
+GP/PARI> binary(n)
+%28 = [1, 0, 1, 0, 0, 0, 0, 1, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 0, 0, 1, 0, 1, 0, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 1, 0, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 1, 0, 1, 1, 1, 0, 1, 0, 0, 0, 1, 1, 0, 0, 1, 0, 1, 0, 1, 1, 0, 0, 0, 1, 1, 0, 1, 1, 0, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 1]
+
+Binary:
+
+01000011 01010100 01000110 01111011 01110111 01100101 01100111 01101001 01110110 01100101 01110100 01100101 01100011 01101000 01111101
+
+CTF{wegivetech}

@@ -1,0 +1,28 @@
+version: beta1
+name: getout2 (gettoken)
+author: ron
+flag: 'CTF{your-token-is-attached}'
+description: |
+  Welcome back, human! If you're here, it means you were issued your copy of
+  Get Out Solutions. Congratulations! You're on your way to Space Paradise!
+
+  You should have received a username and password via The System. The next
+  step to getting out is to log into the system and get your special token.
+  Fire up your "Get Out Solutions" tool, and set it to use the `gettoken`
+  service.
+
+  That token will be required, so you should get it as soon as possible.
+
+  > (*bzzzzt* hey, it's me again. I think you've gotta do this. We need to know
+  > what they're up to. I heard rumours that there's a way to bypass the login
+  > to get the special test-only token. I'm attaching the service file. Good
+  > luck! You might be the last hope for Humanity)
+  >
+  > (You might want to take a close look at the test token!)
+
+tags:
+  - RE
+  - Pwn
+
+# Use the same server as part 1
+service_from_challenge: getout1-warmup

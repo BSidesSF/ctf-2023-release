@@ -1,0 +1,11 @@
+version: release
+name: files
+author: Matthias Penner
+flag: 'CTF{f0rM4t_sTr1nG}'
+description: A simple file storage system. Just run the program and upload and download text files.
+value: 1000
+tags:
+  - Pwn
+port: 6464
+protocol: tcp
+notes: Private notes on deployment, setup, etc.

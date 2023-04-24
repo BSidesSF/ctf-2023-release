@@ -1,0 +1,5 @@
+The image is an odd number of pixels wide (1699) so there is an extra
+padding byte each row. The flag is hidden in the padding, row by row.
+
+$ ./get_flag.pl ../distfiles/blackhole.sun
+flag: CTF{black_padding_information_paradox}

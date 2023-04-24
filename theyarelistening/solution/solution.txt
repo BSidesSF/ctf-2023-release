@@ -1,0 +1,23 @@
+Flag is encoded in balanced ternary in the noise between 6k and 9k Hz.
+
+Low is -1, mid is 0, high is +1. This matches the convention of
+balanced ternary. Each one has a duration of exactly 1 second and
+there are exactly 300 of them.
+
+Extract the noise and process it to convert it from audio to balanced ternary.
+
+I used Audacity, took a screenshot of the spectrogram, imported the
+screenshot to GIMP, and then processed the image and scaled it to
+300x3 black and white pixels.  See freq_extract.png for this.
+
+I then converted the PNG to PNM and processed the image with freq_pnm_to_btern.pl
+
+$ ./freq_pnm_to_btern.pl < freq.pnm
+000000000000122101020000021112210101001202221020212200222222120100201222022210202122101121002201100210121001201102122212211000202000112020022101211200111112010220020110121010210121002011010201122210010011011120020202121220201220222022020020012011111002220012012012200102011201110021102001101012010102
+
+Here the 2 represents -1 while 0 and 1 represent themselves.
+
+Then bternary_to_file.go turns balanced ternary back into a binary file which results in:
+
+Forgive me, they know our flag is CTF{ternary_cybernaut}.
+

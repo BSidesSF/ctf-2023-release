@@ -1,0 +1,38 @@
+#bigimage {
+  height: 800px;
+}
+
+@media (min-width: 992px) {
+  #bigimage {
+    height: 600px;
+  }
+}
+
+#need-token-response {
+  display: None;
+}
+
+#generated-request {
+  width: 80%;
+  font-family: monospace;
+  background: black;
+  color: white;
+  border-radius: 20px;
+  padding: 20px;
+  margin: auto;
+  line-break: anywhere;
+  font-size: 0.7em;
+}
+
+#entered-token {
+  width: 80%;
+  height: 175px;
+  font-family: monospace;
+  background: black;
+  color: white;
+  border-radius: 20px;
+  padding: 20px;
+  margin: auto;
+  line-break: anywhere;
+  overflow: hidden;
+}

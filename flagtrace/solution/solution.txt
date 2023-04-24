@@ -1,0 +1,61 @@
+The challenge is an strace of this C program:
+
+#=====================
+
+#include <stdlib.h>
+#include <stdio.h>
+#include <fcntl.h>
+#include <unistd.h>
+
+int main (void) {
+
+    int flag_f;
+    int key_f;
+    ssize_t count;
+
+    void *mem;
+
+    mem = malloc(1024);
+
+    key_f = open("key.bin", O_RDONLY);
+    count = read(key_f, mem, 1024);
+    close(key_f);
+
+    sprintf(mem, "echo \"Read %ld key bytes\"", count);
+    count = system(mem);
+
+    flag_f = open("flag.enc", O_RDONLY);
+    count = read(flag_f, mem, 1024);
+    close(flag_f);
+
+    sprintf(mem, "echo \"Read %ld flag bytes\"", count);
+    count = system(mem);
+
+    return 0;
+}
+
+#=====================
+
+
+The system() calls are just there to add a ton more noise to strace to
+help "hide" the read of key.bin and flag.enc.
+
+Here are the relevant strace bits:
+
+13487 openat(AT_FDCWD, "key.bin", O_RDONLY) = 3
+13487 read(3, " #\0237", 1024)          = 4
+13487 close(3)                          = 0
+
+13487 openat(AT_FDCWD, "flag.enc", O_RDONLY) = 3
+13487 read(3, "cwULC|zG\177TzCH|`CRBpRR|gJ*", 1024) = 25
+13487 close(3)                          = 0
+
+
+The key is 0x20231337
+The only tricky bit is \023 is octal for hex 0x13 and the 7 at the end is ASCII for 0x37
+
+The only tricky flag bit is \177 which is 0x7f
+
+$ ~/projects/misc_perl/xordecrypt.pl 20231337 ../challenge/flag.enc
+CTF{c_ip_with_stracer_t}
+

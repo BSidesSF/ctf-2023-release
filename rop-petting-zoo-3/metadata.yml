@@ -1,0 +1,11 @@
+version: beta1
+name: "ROP Petting Zoo 3"
+author: ron
+flag: 'CTF{good-ropping-or-cheating}'
+description: "Let's do some tough ROP! Complete 'Level 3' of the ROP Petting Zoo (linked below)!"
+value: 1000
+tags:
+  - Pwn
+  - '101'
+
+service_from_challenge: rop-petting-zoo-1

@@ -1,0 +1,1 @@
+CTF{c_ip_with_stracer_t}

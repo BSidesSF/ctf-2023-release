@@ -1,0 +1,24 @@
+# This is the standard metadata for a challenge with a server-side component.
+# In terms of file structure, please also have the following:
+#
+# - A challenge/ folder with everything needed to create the challenge assets
+# - A distfiles/ folder which contains all files (or symlinks to files) that
+#   will be attached to the challenge
+# - A solution/ folder with a working solution to the challenge (or a README.md
+#   file documenting the solution)
+
+version: beta1
+name: SEFI
+author: matir
+flag: 'CTF{line_encodings_enable_clock_recover}'
+description: |
+  The Search for Extra Flag Intelligence (SEFI) is hunting through noisy signals
+  to look for flags.  Unfortunately, the current search is missing something,
+  can you find the flag in the noise?
+value: 50
+tags:
+  - RE
+  - "1337"
+port: 4000
+protocol: http # accepted: http, https, tcp, udp
+notes: Private notes on deployment, setup, etc.

@@ -1,0 +1,55 @@
+.navbar-brand {
+  padding: 10px;
+}
+
+body {
+  padding-top: 70px;
+}
+
+.gadget {
+  cursor: pointer;
+  user-select: none;
+}
+
+.sidebar {
+  position: fixed;
+  width: 250px;
+  height: calc(100% - 70px);
+  left: 0;
+  right: 0;
+  top: 70px;
+  overflow-y: scroll;
+}
+
+.main {
+  margin: 70px 0 0 250px;
+  padding: 0;
+  overflow-y: scroll;
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: calc(100% - 70px);
+  width: calc(100% - 250px);
+}
+
+#exit-reason {
+  font-weight: strong;
+  color: #d63384;
+  font-family: monospace;
+}
+
+#stdout {
+  font-weight: strong;
+  color: #d63384;
+  font-family: monospace;
+}
+
+#stack {
+  font-family: monospace;
+  cursor: pointer;
+  user-select: none;
+}
+
+#instructions {
+  font-family: monospace;
+}

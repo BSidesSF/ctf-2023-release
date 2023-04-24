@@ -1,0 +1,2 @@
+The score is saved on the JWT, the server accepts JWT Algorithms HS256 and None. 
+Create a JWT with None Algorithm and score set to 1000000 to request the flag from "/flag". 

@@ -1,0 +1,868 @@
+{
+  "kind": ["http://ipuz.org/crossword#1"],
+  "puzzle": [
+    [
+      "#",
+      "#",
+      "#",
+      "#",
+      "#",
+      1,
+      2,
+      3,
+      "#",
+      4,
+      5,
+      6,
+      7,
+      "#",
+      "#",
+      "#",
+      "#",
+      "#"
+    ],
+    [
+      8,
+      9,
+      10,
+      "#",
+      "#",
+      11,
+      0,
+      0,
+      "#",
+      12,
+      0,
+      0,
+      0,
+      13,
+      14,
+      15,
+      16,
+      "#"
+    ],
+    [
+      {
+        "style": {"shapebg": "circle"},
+        "cell": 17
+      },
+      0,
+      0,
+      18,
+      {
+        "style": {"shapebg": "circle"},
+        "cell": 19
+      },
+      {
+        "style": {"shapebg": "circle"},
+        "cell": 0
+      },
+      0,
+      0,
+      20,
+      {
+        "style": {"shapebg": "circle"},
+        "cell": 0
+      },
+      0,
+      0,
+      0,
+      {
+        "style": {"shapebg": "circle"},
+        "cell": 0
+      },
+      0,
+      {
+        "style": {"shapebg": "circle"},
+        "cell": 0
+      },
+      0,
+      "#"
+    ],
+    [
+      21,
+      0,
+      0,
+      0,
+      0,
+      "#",
+      "#",
+      22,
+      0,
+      0,
+      "#",
+      "#",
+      "#",
+      23,
+      0,
+      0,
+      0,
+      "#"
+    ],
+    [
+      "#",
+      24,
+      0,
+      0,
+      0,
+      "#",
+      "#",
+      25,
+      0,
+      0,
+      26,
+      "#",
+      "#",
+      27,
+      0,
+      0,
+      0,
+      28
+    ],
+    [
+      "#",
+      29,
+      0,
+      0,
+      0,
+      {
+        "style": {"shapebg": "circle"},
+        "cell": 30
+      },
+      31,
+      {
+        "style": {"shapebg": "circle"},
+        "cell": 0
+      },
+      {
+        "style": {"shapebg": "circle"},
+        "cell": 0
+      },
+      0,
+      0,
+      32,
+      {
+        "style": {"shapebg": "circle"},
+        "cell": 33
+      },
+      {
+        "style": {"shapebg": "circle"},
+        "cell": 0
+      },
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      "#",
+      "#",
+      "#",
+      34,
+      0,
+      0,
+      0,
+      "#",
+      "#",
+      35,
+      0,
+      0,
+      0,
+      "#",
+      "#",
+      36,
+      0,
+      0
+    ],
+    [
+      "#",
+      "#",
+      "#",
+      "#",
+      "#",
+      37,
+      0,
+      38,
+      "#",
+      "#",
+      39,
+      0,
+      0,
+      "#",
+      "#",
+      "#",
+      "#",
+      "#"
+    ],
+    [
+      40,
+      41,
+      42,
+      43,
+      44,
+      "#",
+      "#",
+      45,
+      46,
+      47,
+      "#",
+      48,
+      0,
+      49,
+      50,
+      51,
+      52,
+      53
+    ],
+    [
+      54,
+      0,
+      0,
+      0,
+      0,
+      55,
+      56,
+      0,
+      0,
+      0,
+      57,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      58,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      "#",
+      59,
+      0,
+      0,
+      "#",
+      "#",
+      60,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      "#",
+      "#",
+      "#",
+      "#",
+      "#",
+      61,
+      0,
+      62,
+      "#",
+      "#",
+      63,
+      64,
+      65,
+      "#",
+      "#",
+      "#",
+      "#",
+      "#"
+    ],
+    [
+      66,
+      67,
+      68,
+      "#",
+      "#",
+      69,
+      0,
+      0,
+      70,
+      "#",
+      "#",
+      71,
+      0,
+      72,
+      73,
+      "#",
+      "#",
+      "#"
+    ],
+    [
+      {
+        "style": {"shapebg": "circle"},
+        "cell": 74
+      },
+      0,
+      0,
+      75,
+      76,
+      0,
+      0,
+      0,
+      0,
+      {
+        "style": {"shapebg": "circle"},
+        "cell": 77
+      },
+      78,
+      {
+        "style": {"shapebg": "circle"},
+        "cell": 0
+      },
+      0,
+      0,
+      {
+        "style": {"shapebg": "circle"},
+        "cell": 0
+      },
+      79,
+      80,
+      "#"
+    ],
+    [
+      81,
+      0,
+      0,
+      0,
+      0,
+      "#",
+      "#",
+      82,
+      0,
+      0,
+      0,
+      "#",
+      "#",
+      83,
+      0,
+      0,
+      0,
+      "#"
+    ],
+    [
+      "#",
+      84,
+      0,
+      0,
+      0,
+      "#",
+      "#",
+      "#",
+      85,
+      0,
+      0,
+      "#",
+      "#",
+      86,
+      0,
+      0,
+      0,
+      87
+    ],
+    [
+      "#",
+      {
+        "style": {"shapebg": "circle"},
+        "cell": 88
+      },
+      0,
+      {
+        "style": {"shapebg": "circle"},
+        "cell": 0
+      },
+      0,
+      89,
+      90,
+      91,
+      0,
+      {
+        "style": {"shapebg": "circle"},
+        "cell": 0
+      },
+      0,
+      92,
+      93,
+      0,
+      {
+        "style": {"shapebg": "circle"},
+        "cell": 0
+      },
+      0,
+      0,
+      0
+    ],
+    [
+      "#",
+      94,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      "#",
+      95,
+      0,
+      0,
+      "#",
+      "#",
+      96,
+      0,
+      0
+    ],
+    [
+      "#",
+      "#",
+      "#",
+      "#",
+      "#",
+      97,
+      0,
+      0,
+      0,
+      "#",
+      98,
+      0,
+      0,
+      "#",
+      "#",
+      "#",
+      "#",
+      "#"
+    ]
+  ],
+  "origin": "CrossFire encoder v1",
+  "block": "#",
+  "version": "http://ipuz.org/v2",
+  "empty": "0",
+  "dimensions": {
+    "width": 18,
+    "height": 19
+  },
+  "clues": {
+    "Down": [
+      [
+        1,
+        "Old-fashioned possessive"
+      ],
+      [
+        2,
+        "Currency north of the 49th"
+      ],
+      [
+        3,
+        "Base of a column"
+      ],
+      [
+        4,
+        "Specious reasoning"
+      ],
+      [
+        5,
+        "Cry at a card table"
+      ],
+      [
+        6,
+        "Seattle Sounders' org."
+      ],
+      [
+        7,
+        "Staple of Polynesian cuisine"
+      ],
+      [
+        8,
+        "Don't just sit"
+      ],
+      [
+        9,
+        "Move with a puffing sound"
+      ],
+      [
+        10,
+        "Nostalgic tint"
+      ],
+      [
+        13,
+        "Even a bit"
+      ],
+      [
+        14,
+        "Lightly bite, like a pup"
+      ],
+      [
+        15,
+        "Put in the trash"
+      ],
+      [
+        16,
+        "Around an hour after noon"
+      ],
+      [
+        18,
+        "Like Legolas"
+      ],
+      [
+        19,
+        "Old fashioned film units"
+      ],
+      [
+        20,
+        "Title for a king"
+      ],
+      [
+        26,
+        "Leave out"
+      ],
+      [
+        28,
+        "Gold units (abbr)"
+      ],
+      [
+        30,
+        "Bay area airport code"
+      ],
+      [
+        31,
+        "36-Across or 92-Down, for eg."
+      ],
+      [
+        32,
+        "_____ Gay"
+      ],
+      [
+        33,
+        "Something added to Topo Chico"
+      ],
+      [
+        38,
+        "Korean auto brand"
+      ],
+      [
+        40,
+        "MySQL specialist, eg."
+      ],
+      [
+        41,
+        "You can't work when it's down"
+      ],
+      [
+        42,
+        "Nobody wins"
+      ],
+      [
+        43,
+        "They typically hold about 650mb"
+      ],
+      [
+        44,
+        "Small laugh"
+      ],
+      [
+        46,
+        "Material at the basis of \"Jurassic Park\""
+      ],
+      [
+        47,
+        "Security tool from Lcamtuf"
+      ],
+      [
+        49,
+        "Scottish exclamation"
+      ],
+      [
+        50,
+        "Aunt in Spanish"
+      ],
+      [
+        51,
+        "Executable section with uninitialized variables"
+      ],
+      [
+        52,
+        "Tenth month (abbr)"
+      ],
+      [
+        53,
+        "Losing line in Tic-Tac-Toe"
+      ],
+      [
+        55,
+        "Anthony, of Cracking the Cryptic"
+      ],
+      [
+        56,
+        "Attacked by hornets"
+      ],
+      [
+        57,
+        "Untrustworthy paper"
+      ],
+      [
+        62,
+        "\"You're on ____!\" - common Zoom exclamation"
+      ],
+      [
+        64,
+        "Sound a goat makes"
+      ],
+      [
+        65,
+        "Affectionate attention (abbr)"
+      ],
+      [
+        66,
+        "Active ingrediant in marijuana (abbr)"
+      ],
+      [
+        67,
+        "Hero pilot"
+      ],
+      [
+        68,
+        "Creeping horizontal plant stem"
+      ],
+      [
+        70,
+        "Pushed aside"
+      ],
+      [
+        72,
+        "Japanese game that follows the adventure of Amaterasu as a wolf"
+      ],
+      [
+        73,
+        "One-_____ somebody"
+      ],
+      [
+        75,
+        "Bronze medal"
+      ],
+      [
+        76,
+        "Type of purchase that's the bane of online gaming"
+      ],
+      [
+        77,
+        "Nobel laureate Wiesel"
+      ],
+      [
+        78,
+        "One of the Sopranos"
+      ],
+      [
+        79,
+        "Would you like coffee _____?"
+      ],
+      [
+        80,
+        "Bygone Russian rulers"
+      ],
+      [
+        87,
+        "Syllable of disapproval"
+      ],
+      [
+        89,
+        "We need to stop burning this"
+      ],
+      [
+        90,
+        "___ Speedwagon"
+      ],
+      [
+        91,
+        "Obamacare bill (abbr)"
+      ],
+      [
+        92,
+        "Org. with a cryptologic museum"
+      ],
+      [
+        93,
+        "Map abbreviation until 1991"
+      ]
+    ],
+    "Across": [
+      [
+        1,
+        "Certain streaming protocol"
+      ],
+      [
+        4,
+        "Type of pump"
+      ],
+      [
+        8,
+        "Cooling units? (abbr)"
+      ],
+      [
+        11,
+        "Evil AI"
+      ],
+      [
+        12,
+        "Being borrowed by"
+      ],
+      [
+        17,
+        "Having a positive outlook (*or, DES, eg)"
+      ],
+      [
+        21,
+        "Finite sequence of elements"
+      ],
+      [
+        22,
+        "Org. funding COVID-19 research"
+      ],
+      [
+        23,
+        "Church recess that sounds like a snake"
+      ],
+      [
+        24,
+        "Small flute"
+      ],
+      [
+        25,
+        "More than a duo"
+      ],
+      [
+        27,
+        "Eye surgery"
+      ],
+      [
+        29,
+        "Doesn't seem quite right (*or, run illicit commands)"
+      ],
+      [
+        34,
+        "Don't click this link (EVER!)"
+      ],
+      [
+        35,
+        "Hunt for Bitcoins, say"
+      ],
+      [
+        36,
+        "Federal agency since 2002"
+      ],
+      [
+        37,
+        "Pokemon professor"
+      ],
+      [
+        39,
+        "Male turkey"
+      ],
+      [
+        40,
+        "Leave behind"
+      ],
+      [
+        45,
+        "Popular reverse engineering tool"
+      ],
+      [
+        48,
+        "Unfortunate element of modern gaming"
+      ],
+      [
+        54,
+        "When interpreted correctly, the circled letters (and associated parenthetical clue) might be found in this CTF!"
+      ],
+      [
+        58,
+        "Wild"
+      ],
+      [
+        59,
+        "___ mode"
+      ],
+      [
+        60,
+        "Someone _____ do it, so why not me?"
+      ],
+      [
+        61,
+        "British parent"
+      ],
+      [
+        63,
+        "Timezone similar to UTC"
+      ],
+      [
+        66,
+        "Hyper-optimized game player (abbr)"
+      ],
+      [
+        69,
+        "Burden"
+      ],
+      [
+        71,
+        "Baseballer commonly found in crossword puzzles"
+      ],
+      [
+        74,
+        "Winning big! (*or, preparing a process's memory for a certain exploit)"
+      ],
+      [
+        81,
+        "Namesake of a bowel disease"
+      ],
+      [
+        82,
+        "Agreement when installing software"
+      ],
+      [
+        83,
+        "Figures that include interest (abbr)"
+      ],
+      [
+        84,
+        "Bibliographic latin: et ____"
+      ],
+      [
+        85,
+        "Year Zero band (abbr)"
+      ],
+      [
+        86,
+        "Used as a rendezvous point"
+      ],
+      [
+        88,
+        "Sources of privileged information (*or, using breached passwords)"
+      ],
+      [
+        94,
+        "Best part of a loaf!"
+      ],
+      [
+        95,
+        "Web markup that nobody quite understands"
+      ],
+      [
+        96,
+        "___ Me Anything!"
+      ],
+      [
+        97,
+        "Piece of information in the uptime command"
+      ],
+      [
+        98,
+        "Symbol for an audio device"
+      ]
+    ]
+  }
+}

@@ -1,0 +1,2 @@
+Use `gcloud auth print-identity-token` to get a valid token 
+Use that to request the flag 

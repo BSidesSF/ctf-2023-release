@@ -1,0 +1,28 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    commonmarker (0.23.8)
+    mustermann (3.0.0)
+      ruby2_keywords (~> 0.0.1)
+    rack (2.2.6.3)
+    rack-protection (3.0.5)
+      rack
+    ruby2_keywords (0.0.5)
+    sinatra (3.0.5)
+      mustermann (~> 3.0)
+      rack (~> 2.2, >= 2.2.4)
+      rack-protection (= 3.0.5)
+      tilt (~> 2.0)
+    singlogger (0.0.1)
+    tilt (2.1.0)
+
+PLATFORMS
+  x86_64-linux
+
+DEPENDENCIES
+  commonmarker
+  sinatra
+  singlogger
+
+BUNDLED WITH
+   2.3.26

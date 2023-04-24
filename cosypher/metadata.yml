@@ -1,0 +1,26 @@
+# This is the standard metadata for a challenge with a web component.
+# In terms of file structure, please also have the following:
+#
+# - A challenge/ folder with everything needed to create the challenge assets
+# - A distfiles/ folder which contains all files (or symlinks to files) that
+#   will be attached to the challenge
+# - A solution/ folder with a working solution to the challenge (or a README.md
+#   file documenting the solution)
+
+version: beta1
+name: cosypher
+author: symmetric
+flag: 'CTF{!JHI~h@<oa}'
+description: |
+  cosypher is the most sophisticated AEAD algorithm to date! Utilizing
+  perfect frequency-based key mixing to leverage maximum trancendetal
+  binary cascading confusion, cosypher is proven to be unbreakable.
+value: 1000
+tags:
+  - Crypto
+  - Terminal
+# This *must* be the port on which your service is listening inside the
+# container.  It *must* also return 200 for a GET / HTTP/1.1.
+port: 31415
+protocol: tcp # accepted: http, https, tcp, udp
+use_podperconn: true

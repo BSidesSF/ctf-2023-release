@@ -1,0 +1,35 @@
+disk.ssd is a BCC Micro floppy disk image (Acorn DFS filesystem).
+
+There is a directory named P with a series of images in it.
+
+Using https://github.com/monkeyman79/dfsimage
+
+$ ./dfsimage list -v ~/projects/github/ctf-2023/acorn/distfiles/disk.ssd
+GALLERY      (85)
+Drive 0             Option 3 (EXEC)
+Dir. :0.$           Lib. :0.$
+
+
+  P.ALBERT            P.BEEB
+  P.BIRD              P.BSIDES
+  P.CAR               P.CAT
+  P.FLAG              P.MANDRIL
+  P.MONARCH           P.ZEBRA
+
+
+P.FLAG is an image (320x256 4 colors) that contains the flag.
+
+$ ./dfsimage dump -v ~/projects/github/ctf-2023/acorn/distfiles/disk.ssd P.FLAG > /tmp/out.bin
+
+The only tricky thing is that images are not encoded row by
+row. Instead they are encoded 8x8 pixels at a time (like characters):
+
+https://www.dfstudios.co.uk/articles/retro-computing/bbc-micro-screen-formats/
+
+Software to decode is available at:
+https://www.dfstudios.co.uk/software/bbc-micro-image-converter/
+
+The flag is very bold and easy to spot so the image doesn't need to be
+decoded very precisely to read the flag.
+
+Flag is CTF{OLDSKOOL}

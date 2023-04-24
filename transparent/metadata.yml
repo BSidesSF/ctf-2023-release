@@ -1,0 +1,31 @@
+# This is the standard metadata for a challenge with a web component.
+# In terms of file structure, please also have the following:
+#
+# - A challenge/ folder with everything needed to create the challenge assets
+# - A distfiles/ folder which contains all files (or symlinks to files) that
+#   will be attached to the challenge
+# - A solution/ folder with a working solution to the challenge (or a README.md
+#   file documenting the solution)
+
+version: beta1
+name: transparent
+author: itsc0rg1, matir
+flag: 'CTF{C3rt1f1edOS1nt}'
+description: I know we got the cert for this, but what did we call it again?
+value: 1000
+tags:
+  - Web
+# This *must* be the port on which your service is listening inside the
+# container.  It *must* also return 200 for a GET / HTTP/1.1.
+port: 443
+protocol: http # accepted: http, https, tcp, udp
+flag_path: / # Optional; but helpful for players
+notes: |
+  URL in Certificate transparency log
+  Hosted on flag-server.transparent-cdfa291c.challenges.bsidessf.net
+omit_link: true
+use_http_loadbalancer: false
+# binding to port 443
+security:
+  allow_run_as_root: true
+hostname: flag-server.transparent-cdfa291c

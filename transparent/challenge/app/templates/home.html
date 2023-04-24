@@ -1,0 +1,23 @@
+<html>
+
+<head>
+    <title> Transparent Challenge </title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+
+<body>
+  <div class="layout">
+    <main class="main">
+      <div class="container">
+        <div class="content">
+          <img src="{{ url_for('static', filename='images/banner.png') }}" class="banner-img" />
+          <h3 class="h3-title">Congrats on finding the flag!</h3>
+          <p>Flag: {{ flag }} </p>
+
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

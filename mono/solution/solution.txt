@@ -1,0 +1,64 @@
+$ cat mono_enc.txt | tr 'hpkveyzwmcqjibsnaglxfodrutHPKVEYZWMCQJIBSNAGLXFODRUT' 'a-zA-Z'
+Monoalphabetic substitution ciphers, also known as simple substitution
+ciphers, are a type of encryption method where each letter in the
+plaintext is replaced by a fixed corresponding letter in the
+ciphertext. For example, in a simple Caesar cipher, each letter is
+shifted by a fixed number of positions in the alphabet. While
+monoalphabetic substitution ciphers may have been used in ancient
+times to secure messages, they are widely regarded as insecure in
+modern cryptography due to several significant vulnerabilities.
+
+One of the main reasons why monoalphabetic substitution ciphers are
+insecure is their lack of entropy. Entropy refers to the measure of
+randomness or unpredictability in a ciphertext. In monoalphabetic
+substitution ciphers, the relationship between the plaintext and
+ciphertext is one-to-one, meaning that each letter in the plaintext is
+replaced by the same letter in the ciphertext. This pattern makes it
+vulnerable to frequency analysis attacks, where an attacker can
+analyze the frequency distribution of letters in the ciphertext and
+make educated guesses about the corresponding letters in the
+plaintext. For example, in English, the letter "e" is the most
+frequently used letter, and an attacker could deduce that the most
+frequently occurring letter in the ciphertext corresponds to "e" in
+the plaintext. This significantly weakens the security of the cipher,
+as the entire message can be easily deciphered with such
+frequency-based attacks.
+
+Another weakness of monoalphabetic substitution ciphers is their
+vulnerability to known-plaintext attacks. In known-plaintext attacks,
+an attacker has access to both the plaintext and the corresponding
+ciphertext. Since each letter in the plaintext is replaced by the same
+letter in the ciphertext, an attacker can easily deduce the
+substitution pattern and create a reverse mapping from the ciphertext
+to the plaintext. Once the substitution pattern is known, the entire
+ciphertext can be deciphered, rendering the cipher ineffective in
+protecting the confidentiality of the message.
+
+Moreover, monoalphabetic substitution ciphers do not provide any
+protection against pattern analysis attacks. In pattern analysis
+attacks, an attacker looks for repeated patterns or sequences of
+letters in the ciphertext to deduce information about the
+plaintext. Since each letter in the plaintext is replaced by the same
+letter in the ciphertext, the patterns and structures of the plaintext
+are preserved in the ciphertext, making it vulnerable to pattern
+analysis attacks. For example, common words, phrases, or letter
+combinations in the plaintext would still appear as the same patterns
+in the ciphertext, providing clues to the attacker about the original
+message.
+
+In conclusion, monoalphabetic substitution ciphers are insecure due to
+their lack of entropy, vulnerability to frequency analysis attacks,
+susceptibility to known-plaintext attacks, and weakness against
+pattern analysis attacks. These vulnerabilities make monoalphabetic
+substitution ciphers ineffective in providing robust confidentiality
+and integrity for modern cryptographic applications. As a result, more
+sophisticated encryption methods, such as polyalphabetic substitution
+ciphers, symmetric key algorithms, and public key cryptography, have
+been developed and widely adopted to ensure secure communication in
+the digital age.
+
+The flag is: CTF open curly brace monoalphabeticisabigwordforasmallkey
+close curly brace.
+
+
+CTF{monoalphabeticisabigwordforasmallkey}

@@ -1,0 +1,39 @@
+<resources>
+    <string name="app_name">SpaceCowboy</string>
+    <string name="app_title">Space Cowboy</string>
+    <string name="action_settings">Settings</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">Rocket Start</string>
+    <string name="second_fragment_label">Rocket Launch</string>
+    <string name="third_fragment_label">Flag</string>
+    <!-- Strings associated with Flag actions -->
+    <string name="flag">Get Flag</string>
+    <string name="flag_placeholder">Pending...</string>
+    <string name="reset">Return home</string>
+    <!-- Strings for Main activity -->
+    <string name="balance_text">Current Balance</string>
+    <string name="game_text">You need 500 coins to launch</string>
+    <string name="coins_placeholder">0</string>
+    <string name="launch">Launch</string>
+    <string name="insufficient_coins">You need 500 coins to launch the rocket!</string>
+    <!-- Strings used for login/registration -->
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in</string>
+    <string name="prompt_email">Email</string>
+    <string name="action_register">Register</string>
+    <string name="prompt_password2">Confirm Password</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <!-- Strings used for coupon redemption -->
+    <string name="invalid_coupon">Please enter a valid coupon code</string>
+    <string name="coupon_success">Your balance has been updated</string>
+    <string name="coupon_fail">Coupon redemption failed</string>
+    <string name="reload_coins">Reload coins</string>
+    <string name="reload_prompt">Redeem a coupon for 100 coins</string>
+    <string name="reload_text">Coupon code</string>
+    <string name="reload_button">Redeem coupon</string>
+</resources>

@@ -1,0 +1,7 @@
+Share 5 of 7 (min 5):
+(x5, y5) = (5, 589183787842889173793388269)
+
+Field prime = 2^89 - 1
+Flag = CTF{secretasletters}
+Secret -> base 27
+a = 1, b = 2, ... z = 26 (base 27)
