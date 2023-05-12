@@ -29,7 +29,7 @@ uint8_t *recv_exactly(int s, uint32_t n) {
   uint32_t received = 0;
   while(received < n) {
     ssize_t count = recv(s, buf + received, n - received, 0);
-    if(count < 0) {
+    if(count <= 0) {
       perror("Recv failed");
       exit(1);
     }
